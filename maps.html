@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE WAR TABLE — BGMI Universe</title>
+<meta name="description" content="The Storm War Table — every Battlegrounds Mobile India battleground, briefed under kaiju-storm skies with live atomic-signal detection." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="THE WAR TABLE — BGMI Universe" />
+<meta property="og:description" content="The Storm War Table — every Battlegrounds Mobile India battleground, briefed under kaiju-storm skies with live atomic-signal detection." />
+<meta property="og:url" content="https://bgmiuniverse.com/maps.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/Erangel.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/maps.css" />
+</head>
+<body>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" disablePictureInPicture disableRemotePlayback>
+    <source src="3.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="rain"></div>
+<div id="lightning"></div>
+<div id="bg-grid"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
+    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
+    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
+    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="weapons.html" class="nav-link">WEAPONS</a>
+      <a href="maps.html" class="nav-link active">MAPS</a>
+      <a href="vehicles.html" class="nav-link">VEHICLES</a>
+      <a href="characters.html" class="nav-link">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link">ESPORTS</a>
+    </div>
+    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link active">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
+</div>
+
+<section id="war-head">
+  <div class="head-tag"><span class="head-dot"></span> STORM UPLINK — 7 BATTLEGROUNDS ON FILE</div>
+  <h1 class="war-h1">THE <span class="accent">WAR TABLE</span></h1>
+  <p class="war-desc">Every drop zone on file, briefed under storm-lit skies with live atomic-signal detection. Select a battleground below to pull its full strategic readout onto the table.</p>
+</section>
+
+<section id="briefing">
+  <div class="briefing-frame">
+    <div class="briefing-visual" id="briefingVisual">
+      <div class="briefing-visual-grid"></div>
+      <div class="briefing-visual-scanlines"></div>
+      <div class="briefing-code" id="briefingCode">SECTOR // 00</div>
+      <div class="sonar-wrap"><div class="sonar-ring"></div><div class="sonar-ring d2"></div><div class="sonar-ring d3"></div><div class="sonar-dot"></div></div>
+      <span class="briefing-corner tl"></span><span class="briefing-corner tr"></span>
+      <span class="briefing-corner bl"></span><span class="briefing-corner br"></span>
+      <div class="briefing-name-plate">
+        <div class="briefing-name" id="briefingName">Erangel</div>
+        <div class="briefing-tag" id="briefingTag">Classic Battleground</div>
+      </div>
+      <div class="briefing-visual-vignette"></div>
+      
+    </div>
+    <div class="briefing-data">
+      <p class="bd-desc" id="bdDesc">—</p>
+      <div class="bd-stats">
+        <div class="bd-stat"><div class="bd-stat-label">Map Size</div><div class="bd-stat-val" id="bdSize">—</div></div>
+        <div class="bd-stat"><div class="bd-stat-label">Max Players</div><div class="bd-stat-val" id="bdPlayers">—</div></div>
+        <div class="bd-stat"><div class="bd-stat-label">Terrain</div><div class="bd-stat-val" id="bdTerrain">—</div></div>
+        <div class="bd-stat"><div class="bd-stat-label">Points of Interest</div><div class="bd-stat-val" id="bdPoiCount">—</div></div>
+      </div>
+      <div>
+        <div class="bd-stat-label" style="margin-bottom:.5rem;">Supported Modes</div>
+        <div class="bd-modes" id="bdModes"></div>
+      </div>
+      <div>
+        <div class="bd-stat-label" style="margin-bottom:.5rem;">Notable Drop Zones</div>
+        <div class="bd-poi" id="bdPoi">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roster">
+  <div id="roster-filter">
+    <button class="filter-pill active" data-filter="all">All Battlegrounds</button>
+    <button class="filter-pill" data-filter="Large">Large (8x8)</button>
+    <button class="filter-pill" data-filter="Mid">Mid (6x6 / 4x4)</button>
+    <button class="filter-pill" data-filter="Small">Small (2x2)</button>
+  </div>
+  <div class="roster-grid" id="rosterGrid"></div>
+</section>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+       <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">Blood Armory</a>
+        <a href="maps.html" class="footer-link">War Table</a>
+        <a href="vehicles.html" class="footer-link">Motor Pool</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="esports.html" class="footer-link">Esports Intel</a>
+      </div>
+    </div>
+      <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover)').matches;
+
+const nav = document.getElementById('nav');
+let scrollRAF = null, scrollEndTimer = null;
+function handleScroll() {
+  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', () => {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
+  if (scrollRAF) return;
+  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
+}, { passive:true });
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const glow = document.getElementById('cursor-glow');
+let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my, rafRunning = false;
+if (!reducedMotion && canHover && glow) {
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; glow.style.opacity = '1'; }, { passive:true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+  function raf(){
+    if (document.hidden) { rafRunning = false; return; }
+    gx += (mx-gx)*0.12; gy += (my-gy)*0.12;
+    glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`;
+    requestAnimationFrame(raf);
+  }
+  function startRaf(){ if (!rafRunning) { rafRunning = true; requestAnimationFrame(raf); } }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) startRaf(); });
+  startRaf();
+}
+
+const bgVid = document.getElementById('bg-video');
+bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
+if (!reducedMotion) document.getElementById('lightning').classList.add('active');
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
+});
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+let audioUnlocked = false;
+
+function fadeVolume(video, to, duration = 700) {
+  const from = video.volume;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    video.volume = from + (to - from) * p;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function enableSound() {
+  if (!bgVid) return;
+  bgVid.muted = false;
+  bgVid.volume = 0;
+  bgVid.play().catch(() => {});
+  fadeVolume(bgVid, 0.55);
+  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
+  if (soundHint) soundHint.classList.remove('show');
+}
+function disableSound() {
+  if (!bgVid) return;
+  fadeVolume(bgVid, 0, 350);
+  setTimeout(() => { bgVid.muted = true; }, 370);
+  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
+}
+function firstGestureUnlock() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  enableSound();
+  document.removeEventListener('click', firstGestureUnlock);
+  document.removeEventListener('touchstart', firstGestureUnlock);
+  document.removeEventListener('keydown', firstGestureUnlock);
+}
+if (bgVid && soundToggle) {
+  document.addEventListener('click', firstGestureUnlock);
+  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
+  document.addEventListener('keydown', firstGestureUnlock);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioUnlocked = true;
+    if (bgVid.muted) enableSound(); else disableSound();
+  });
+
+  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
+  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
+}
+
+const maps = [
+  { id:'erangel', name:'Erangel', tag:'Classic Battleground', img:'Erangel.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Mixed / Forest', poiCount:'20+',
+    desc:'The original proving ground — rolling farmland, dense forest and the ruins of Pochinki at its heart. Balanced loot and open sightlines reward map awareness over rushing.',
+    modes:['Solo','Duo','Squad','TDM'], poi:'<b>Pochinki</b> — chaotic early fights · <b>Military Base</b> — high-tier loot · <b>School</b> — central rotation fights' },
+  { id:'miramar', name:'Miramar', tag:'Desert Battleground', img:'Miramar.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Desert / Canyon', poiCount:'18+',
+    desc:'A sun-scorched desert of canyons and open highways. Longer sightlines favor DMRs and snipers — vehicles matter more here than anywhere else on the table.',
+    modes:['Solo','Duo','Squad'], poi:'<b>Los Leones</b> — coastal loot hub · <b>Hacienda del Patrón</b> — cartel compound · <b>Water Town</b> — vertical CQC' },
+  { id:'sanhok', name:'Sanhok', tag:'Jungle Battleground', img:'Sanhok.jpeg', size:'4x4 km', sizeClass:'Mid', players:'100', terrain:'Jungle / Island', poiCount:'12+',
+    desc:'Dense, fast and unforgiving. Sanhok\'s tight jungle compresses fights early, and the zone closes hard — expect action within minutes of landing.',
+    modes:['Solo','Duo','Squad','Quick Match'], poi:'<b>Bootcamp</b> — high-risk high-reward · <b>Paradise Resort</b> — central hotspot · <b>Ha Tinh</b> — coastal rotations' },
+  { id:'vikendi', name:'Vikendi', tag:'Snow Battleground', img:'Vikendi.jpeg', size:'6x6 km', sizeClass:'Mid', players:'100', terrain:'Snow / Mountain', poiCount:'15+',
+    desc:'A frozen expanse where snowmobile tracks give away your position and frozen lakes crack under vehicle weight. Verticality and cover discipline decide fights here.',
+    modes:['Solo','Duo','Squad'], poi:'<b>Cosmodrome</b> — abandoned launch site · <b>Castle</b> — fortified endgame zone · <b>Dino Park</b> — landmark rotation' },
+  { id:'livik', name:'Livik', tag:'Compact Battleground', img:'Livik.jpeg', size:'2x2 km', sizeClass:'Small', players:'52', terrain:'Nordic / Coastal', poiCount:'9',
+    desc:'Built for speed. Short zone timers and a tiny footprint mean the whole lobby is in a firefight within the first two circles — no rotation, only combat.',
+    modes:['Solo','Duo','Squad','Quick Match'], poi:'<b>Blomster</b> — waterfall drop · <b>Power Plant</b> — industrial loot · <b>Mure Hill</b> — high-ground endgame' },
+  { id:'karakin', name:'Karakin', tag:'Tactical Battleground', img:'Karakin.jpeg', size:'2x2 km', sizeClass:'Small', players:'64', terrain:'Rock / Bunker', poiCount:'8',
+    desc:'Destructible walls and a black-zone mechanic that can wipe entire compounds. Karakin punishes camping — the map itself is designed to force engagement.',
+    modes:['Solo','Duo','Squad'], poi:'<b>Cave</b> — hidden loot passage · <b>Bunkers</b> — underground vault rooms · <b>Bahra</b> — dense central town' },
+  { id:'rondo', name:'Rondo', tag:'Dynasty Battleground', img:'Rondo.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Mixed / Cultural', poiCount:'19+',
+    desc:'The newest battleground — a sprawling map blending imperial architecture with open plains. Interactive POIs and destructible cover push a more dynamic playstyle.',
+    modes:['Solo','Duo','Squad'], poi:'<b>Whitewood</b> — resource-rich forest · <b>Grand Bazaar</b> — market district skirmishes · <b>Palace</b> — landmark endgame zone' }
+];
+
+const grid = document.getElementById('rosterGrid');
+const visual = document.getElementById('briefingVisual');
+let selectedId = maps[0].id;
+
+function renderRoster(filter='all'){
+  grid.innerHTML = '';
+  maps.forEach((m, i) => {
+    if (filter !== 'all' && m.sizeClass !== filter) return;
+    const card = document.createElement('div');
+    card.className = 'roster-card' + (m.id === selectedId ? ' selected' : '');
+    card.dataset.id = m.id;
+    card.style.animationDelay = (i*0.05) + 's';
+    card.innerHTML = `
+      <img src="${encodeURIComponent(m.img)}" alt="${m.name}" onerror="this.style.display='none'">
+      <div class="roster-label">
+        <div class="roster-name">${m.name}</div>
+        <div class="roster-size">${m.size} · ${m.terrain}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function selectMap(id){
+  const m = maps.find(x => x.id === id);
+  if (!m) return;
+  selectedId = id;
+
+  document.getElementById('briefingName').textContent = m.name;
+  document.getElementById('briefingTag').textContent = m.tag;
+  document.getElementById('briefingCode').textContent = 'SECTOR // ' + m.id.slice(0,3).toUpperCase();
+  document.getElementById('bdDesc').textContent = m.desc;
+  document.getElementById('bdSize').textContent = m.size;
+  document.getElementById('bdPlayers').textContent = m.players;
+  document.getElementById('bdTerrain').textContent = m.terrain;
+  document.getElementById('bdPoiCount').textContent = m.poiCount;
+  document.getElementById('bdPoi').innerHTML = m.poi;
+  document.getElementById('bdModes').innerHTML = m.modes.map(mode => `<span class="bd-mode">${mode}</span>`).join('');
+
+  let img = visual.querySelector(`img[data-id="${id}"]`);
+  visual.querySelectorAll('img').forEach(el => el.classList.remove('active'));
+  if (!img) {
+    img = document.createElement('img');
+    img.dataset.id = id;
+    img.src = encodeURIComponent(m.img);
+    img.alt = m.name;
+    img.onerror = function(){ this.style.display = 'none'; };
+    visual.insertBefore(img, visual.querySelector('.briefing-visual-vignette'));
+    requestAnimationFrame(() => img.classList.add('active'));
+  } else {
+    img.classList.add('active');
+  }
+
+  document.querySelectorAll('.roster-card').forEach(c => c.classList.toggle('selected', c.dataset.id === id));
+}
+
+grid.addEventListener('click', (e) => {
+  const card = e.target.closest('.roster-card');
+  if (!card) return;
+  selectMap(card.dataset.id);
+  document.getElementById('briefing').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block:'center' });
+});
+
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderRoster(e.target.getAttribute('data-filter'));
+  });
+});
+
+renderRoster();
+selectMap(maps[0].id);
+</script>
+</body>
+</html>

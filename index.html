@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGMI UNIVERSE — Enter the Blood Moon</title>
+<meta name="description" content="The ultimate fan universe for Battlegrounds Mobile India. Weapons, maps, vehicles, characters, skins and esports." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="BGMI UNIVERSE — Enter the Blood Moon" />
+<meta property="og:description" content="The ultimate fan universe for Battlegrounds Mobile India. Weapons, maps, vehicles, characters, skins and esports." />
+<meta property="og:url" content="https://bgmiuniverse.com/index.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/M416.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-ring">
+    <svg viewBox="0 0 74 74"><circle cx="37" cy="37" r="30" stroke="url(#g1)" stroke-width="1.5"/>
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0d38a"/><stop offset="100%" stop-color="#d81e3a"/></linearGradient></defs>
+    </svg>
+  </div>
+  <div class="intro-title">BGMI UNIVERSE</div>
+  <div class="intro-bar"></div>
+  <div class="intro-sub">Loading the Blood Moon…</div>
+</div>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto"  disablePictureInPicture disableRemotePlayback>
+    <source src="home.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<canvas id="depth-field"></canvas>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
+    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
+    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
+    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">HOME</a>
+      <a href="weapons.html" class="nav-link">WEAPONS</a>
+      <a href="maps.html" class="nav-link">MAPS</a>
+      <a href="vehicles.html" class="nav-link">VEHICLES</a>
+      <a href="characters.html" class="nav-link">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link">ESPORTS</a>
+    </div>
+
+    <a href="weapons.html" class="btn btn-blood btn-shimmer nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      ENTER ARSENAL
+    </a>
+
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link active">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
+  <a href="weapons.html" class="btn btn-blood btn-shimmer" style="margin-top:1rem;width:100%;">ENTER ARSENAL</a>
+</div>
+
+<section id="hero">
+  <div class="hero-rays"></div>
+  <div class="hero-moon-glow"></div>
+  <div class="ember-field" id="ember-field"></div>
+  <div class="hero-inner" id="hero-parallax">
+
+    <div class="hero-left">
+      <div class="hero-tag reveal">
+        <span class="hero-tag-dot"></span>
+        SEASON OF THE BLOOD MOON — LIVE NOW
+      </div>
+
+      <h1 class="hero-h1 reveal reveal-delay-1">
+        ENTER THE
+        <span class="accent">BLOOD MOON</span>
+        BATTLEGROUND
+      </h1>
+
+      <p class="hero-sub reveal reveal-delay-1">Ignite · Dominate · Survive</p>
+      <p class="hero-desc reveal reveal-delay-2">
+        The ultimate digital arsenal — every weapon, map, vehicle, skin and operator from Battlegrounds Mobile India, rendered in cinematic, blood-forged detail.
+      </p>
+
+      <div class="hero-actions reveal reveal-delay-2">
+        <a href="weapons.html" class="btn btn-blood btn-shimmer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          ENTER ARSENAL
+        </a>
+        <a href="maps.html" class="btn btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          TACTICAL MAPS
+        </a>
+      </div>
+
+      <div class="hero-stats reveal reveal-delay-3">
+        <div class="stat-item"><div class="stat-num" id="sn-weapons">0</div><div class="stat-label">Weapons</div></div>
+        <div class="stat-item"><div class="stat-num" id="sn-maps">0</div><div class="stat-label">Maps</div></div>
+        <div class="stat-item"><div class="stat-num" id="sn-skins">0</div><div class="stat-label">Skins</div></div>
+        <div class="stat-item"><div class="stat-num" id="sn-chars">0</div><div class="stat-label">Operators</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right reveal reveal-delay-2">
+      <div class="relic-stage">
+        <div class="relic-glow"></div>
+        <div class="relic-3d">
+          <div class="relic-ring"></div>
+          <div class="relic-ring r2"></div>
+          <div class="relic-ring r3"></div>
+          <div class="relic-core"></div>
+        </div>
+      </div>
+      <div class="relic-caption">
+        <div class="rc-title">The Blood Moon Sigil</div>
+        <div class="rc-sub">Season Emblem · Rotating Relic</div>
+      </div>
+      <div class="intel-ticker">
+        <div class="intel-track">
+          <span>19+ WEAPONS CATALOGUED</span>
+          <span>7 BATTLEGROUNDS MAPPED</span>
+          <span>100+ SKINS IN THE VAULT</span>
+          <span>8 OPERATORS PROFILED</span>
+          <span>19+ WEAPONS CATALOGUED</span>
+          <span>7 BATTLEGROUNDS MAPPED</span>
+          <span>100+ SKINS IN THE VAULT</span>
+          <span>8 OPERATORS PROFILED</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="featured">
+  <div class="featured-inner">
+    <div class="featured-header">
+      <div>
+        <div class="section-tag reveal">TACTICAL INTEL</div>
+        <h2 class="section-h2 reveal reveal-delay-1">FEATURED <span class="accent">OPERATIONS</span></h2>
+      </div>
+      <a href="weapons.html" class="btn btn-outline reveal" style="font-size:.68rem;padding:.6rem 1.25rem;">VIEW ALL MODULES →</a>
+    </div>
+
+    <div class="ops-grid">
+
+      <div class="op-card reveal" style="--card-color: rgba(216,30,58,.16); --card-accent: #d81e3a;">
+        <div class="op-card-border"></div>
+        <div>
+          <div class="op-label" style="color:var(--blood-2);">ARMORY SHOWROOM</div>
+          <div class="op-card-img-wrap media-frame">
+            <img src="M416.jpeg" alt="M416 Weapon" class="op-card-img" onerror="this.style.display='none'">
+          </div>
+          <div class="op-title">3D WEAPON ARSENAL</div>
+          <p class="op-desc">Compare every BGMI weapon — Damage, Range, Fire Rate. Interactive relic-forged cards with Frost, Blood, and Spectral skin glow effects.</p>
+        </div>
+        <a href="weapons.html" class="op-cta" style="color:var(--blood-2);">INSPECT WEAPONS <span>→</span></a>
+      </div>
+
+      <div class="op-card reveal reveal-delay-1" style="--card-color: rgba(201,168,106,.16); --card-accent: #c9a86a;">
+        <div class="op-card-border"></div>
+        <div>
+          <div class="op-label" style="color:var(--gold-2);">SATELLITE MAPS</div>
+          <div class="op-card-img-wrap media-frame">
+            <img src="Erangel.jpeg" alt="Erangel" class="op-card-img" onerror="this.style.display='none'">
+          </div>
+          <div class="op-title">TACTICAL MAP INTEL</div>
+          <p class="op-desc">Detailed battlefield intel on Erangel, Miramar, and Vikendi. Loot zones, choke points, and vehicle spawn locations.</p>
+        </div>
+        <a href="maps.html" class="op-cta" style="color:var(--gold-2);">EXPLORE MAPS <span>→</span></a>
+      </div>
+
+      <div class="op-card reveal reveal-delay-2" style="--card-color: rgba(124,74,158,.18); --card-accent: #a877c8;">
+        <div class="op-card-border"></div>
+        <div>
+          <div class="op-label" style="color:var(--violet);">OPERATORS &amp; GEAR</div>
+          <div class="op-card-img-wrap media-frame">
+            <img src="Andy.jpeg" alt="Character Andy" class="op-card-img" onerror="this.style.display='none'">
+          </div>
+          <div class="op-title">CHARACTER DOSSIERS</div>
+          <p class="op-desc">Operator ability breakdowns, tactical roles, and gear synergy charts for Andy, Carlo, Sara, Victor, and all BGMI characters.</p>
+        </div>
+        <a href="characters.html" class="op-cta" style="color:var(--violet);">VIEW CHARACTERS <span>→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="weapons-strip">
+  <div class="strip-header">
+    <div>
+      <div class="section-tag reveal">LIVE ARMORY</div>
+      <h2 class="section-h2 reveal reveal-delay-1">TOP <span class="accent">WEAPONS</span></h2>
+    </div>
+    <a href="weapons.html" class="btn btn-outline reveal" style="font-size:.68rem;padding:.6rem 1.25rem;">VIEW ALL 19 →</a>
+  </div>
+
+  <div class="weapons-grid">
+
+    <div class="weapon-mini reveal" style="--w-accent:#a877c8;">
+      <span class="weapon-mini-badge" style="background:rgba(168,119,200,.15);color:#c8a3e8;border:1px solid rgba(168,119,200,.4);">FROST</span>
+      <div class="weapon-mini-media media-frame"><img src="M416.jpeg" alt="M416" class="weapon-mini-img" onerror="this.style.display='none'"></div>
+      <div class="weapon-mini-name">M416</div>
+      <div class="weapon-mini-cat">Assault Rifle</div>
+      <div class="weapon-mini-stat">
+        <div class="weapon-mini-stat-label"><span>DMG</span><span>41</span></div>
+        <div class="weapon-mini-bar"><div class="weapon-mini-bar-fill" style="width:34%;background:#a877c8;box-shadow:0 0 6px #a877c8;"></div></div>
+      </div>
+    </div>
+
+    <div class="weapon-mini reveal reveal-delay-1" style="--w-accent:#d81e3a;">
+      <span class="weapon-mini-badge" style="background:rgba(216,30,58,.15);color:#f2919e;border:1px solid rgba(216,30,58,.4);">BLOOD</span>
+      <div class="weapon-mini-media media-frame"><img src="Akm.jpeg" alt="AKM" class="weapon-mini-img" onerror="this.style.display='none'"></div>
+      <div class="weapon-mini-name">AKM</div>
+      <div class="weapon-mini-cat">Assault Rifle</div>
+      <div class="weapon-mini-stat">
+        <div class="weapon-mini-stat-label"><span>DMG</span><span>47</span></div>
+        <div class="weapon-mini-bar"><div class="weapon-mini-bar-fill" style="width:39%;background:#d81e3a;box-shadow:0 0 6px #d81e3a;"></div></div>
+      </div>
+    </div>
+
+    <div class="weapon-mini reveal reveal-delay-2" style="--w-accent:#c9a86a;">
+      <span class="weapon-mini-badge" style="background:rgba(201,168,106,.15);color:#f0d38a;border:1px solid rgba(201,168,106,.4);">RELIC GOLD</span>
+      <div class="weapon-mini-media media-frame"><img src="Awm.jpeg" alt="AWM" class="weapon-mini-img" onerror="this.style.display='none'"></div>
+      <div class="weapon-mini-name">AWM</div>
+      <div class="weapon-mini-cat">Sniper Rifle</div>
+      <div class="weapon-mini-stat">
+        <div class="weapon-mini-stat-label"><span>DMG</span><span>105</span></div>
+        <div class="weapon-mini-bar"><div class="weapon-mini-bar-fill" style="width:88%;background:#c9a86a;box-shadow:0 0 6px #c9a86a;"></div></div>
+      </div>
+    </div>
+
+    <div class="weapon-mini reveal reveal-delay-3" style="--w-accent:#d81e3a;">
+      <span class="weapon-mini-badge" style="background:rgba(216,30,58,.15);color:#f2919e;border:1px solid rgba(216,30,58,.4);">BLOOD</span>
+      <div class="weapon-mini-media media-frame"><img src="Groza.jpeg" alt="Groza" class="weapon-mini-img" onerror="this.style.display='none'"></div>
+      <div class="weapon-mini-name">GROZA</div>
+      <div class="weapon-mini-cat">Assault Rifle</div>
+      <div class="weapon-mini-stat">
+        <div class="weapon-mini-stat-label"><span>DMG</span><span>47</span></div>
+        <div class="weapon-mini-bar"><div class="weapon-mini-bar-fill" style="width:39%;background:#d81e3a;box-shadow:0 0 6px #d81e3a;"></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="maps-showcase">
+  <div class="maps-inner">
+    <div class="section-tag reveal">BATTLEGROUND ZONES</div>
+    <h2 class="section-h2 reveal reveal-delay-1">COMBAT <span class="accent">ARENAS</span></h2>
+
+    <div class="maps-grid">
+      <div class="map-card reveal" style="transition-delay:.1s;">
+        <div class="media-frame" style="height:100%;">
+          <img src="Erangel.jpeg" alt="Erangel" class="map-card-img" onerror="this.style.display='none'">
+        </div>
+        <div class="map-card-overlay">
+          <div class="map-card-tag">8×8 KM · GRASSLANDS</div>
+          <div class="map-card-name">ERANGEL</div>
+          <div class="map-card-info">Classic • High-density loot • Long-range combat</div>
+        </div>
+      </div>
+
+      <div class="map-card reveal reveal-delay-1">
+        <div class="media-frame" style="height:100%;">
+          <img src="Miramar.jpeg" alt="Miramar" class="map-card-img" onerror="this.style.display='none'">
+        </div>
+        <div class="map-card-overlay">
+          <div class="map-card-tag">8×8 KM · DESERT</div>
+          <div class="map-card-name">MIRAMAR</div>
+          <div class="map-card-info">Expert · Sniper country · Vehicle warfare</div>
+        </div>
+      </div>
+
+      <div class="map-card reveal reveal-delay-2">
+        <div class="media-frame" style="height:100%;">
+          <img src="Vikendi.jpeg" alt="Vikendi" class="map-card-img" onerror="this.style.display='none'">
+        </div>
+        <div class="map-card-overlay">
+          <div class="map-card-tag">6×6 KM · SNOW</div>
+          <div class="map-card-name">VIKENDI</div>
+          <div class="map-card-info">Balanced · Stealth movement · Mid-range engagements</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">3D Weapon Showroom</a>
+        <a href="equipment.html" class="footer-link">Scope &amp; Attachment Lab</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="characters.html" class="footer-link">Character Dossiers</a>
+        <a href="esports.html" class="footer-link">Esports Intel</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const intro = document.getElementById('intro');
+setTimeout(() => { intro.classList.add('hide'); }, reducedMotion ? 0 : 2100);
+
+const nav = document.getElementById('nav');
+let scrollRAF = null, scrollEndTimer = null;
+function handleScroll() {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', () => {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
+  if (scrollRAF) return;
+  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
+}, { passive: true });
+
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const heroParallax = document.getElementById('hero-parallax');
+const glow = document.getElementById('cursor-glow');
+const canHover = window.matchMedia('(hover: hover)').matches;
+let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+let gx = mx, gy = my;
+
+if (!reducedMotion && canHover) {
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    glow.style.opacity = '1';
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+  let running = true;
+  document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) loop(); });
+
+  function loop() {
+    if (!running) return;
+    if (heroParallax) {
+      const xPct = (mx / window.innerWidth - 0.5);
+      const yPct = (my / window.innerHeight - 0.5);
+      heroParallax.style.transform = `rotateY(${xPct * 8}deg) rotateX(${-yPct * 6}deg)`;
+    }
+    gx += (mx - gx) * 0.09;
+    gy += (my - gy) * 0.09;
+    glow.style.transform = `translate3d(${gx - 170}px, ${gy - 170}px, 0)`;
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+} else if (glow) {
+  glow.style.display = 'none';
+}
+
+function animCount(el, target, suffix = '') {
+  const start = Date.now();
+  const duration = 1800;
+  function tick() {
+    const elapsed = Date.now() - start;
+    const pct = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - pct, 3);
+    if (el) el.textContent = Math.floor(ease * target) + suffix;
+    if (pct < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+
+let countersFired = false;
+function fireCounters() {
+  if (countersFired) return;
+  countersFired = true;
+  animCount(document.getElementById('sn-weapons'), 19, '+');
+  animCount(document.getElementById('sn-maps'), 7, '+');
+  animCount(document.getElementById('sn-skins'), 100, '+');
+  animCount(document.getElementById('sn-chars'), 8, '+');
+}
+const heroSection = document.getElementById('hero');
+const heroIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) fireCounters(); });
+}, { threshold: 0.2 });
+if (heroSection) {
+  heroIO.observe(heroSection);
+  const rect = heroSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight) fireCounters();
+}
+
+const bgVid = document.getElementById('bg-video');
+if (bgVid) {
+  bgVid.play().catch(() => {
+    document.addEventListener('click', () => bgVid.play(), { once: true });
+  });
+}
+document.addEventListener('visibilitychange', () => {
+  if (!bgVid) return;
+  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
+});
+
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+let audioUnlocked = false;
+
+function fadeVolume(video, to, duration = 700) {
+  const from = video.volume;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    video.volume = from + (to - from) * p;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function enableSound() {
+  if (!bgVid) return;
+  bgVid.muted = false;
+  bgVid.volume = 0;
+  bgVid.play().catch(() => {});
+  fadeVolume(bgVid, 0.55);
+  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
+  if (soundHint) soundHint.classList.remove('show');
+}
+function disableSound() {
+  if (!bgVid) return;
+  fadeVolume(bgVid, 0, 350);
+  setTimeout(() => { bgVid.muted = true; }, 370);
+  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
+}
+function firstGestureUnlock() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  enableSound();
+  document.removeEventListener('click', firstGestureUnlock);
+  document.removeEventListener('touchstart', firstGestureUnlock);
+  document.removeEventListener('keydown', firstGestureUnlock);
+}
+if (bgVid && soundToggle) {
+  document.addEventListener('click', firstGestureUnlock);
+  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
+  document.addEventListener('keydown', firstGestureUnlock);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioUnlocked = true;
+    if (bgVid.muted) enableSound(); else disableSound();
+  });
+
+  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
+  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
+}
+
+if (!reducedMotion) (function initEmbers() {
+  const field = document.getElementById('ember-field');
+  if (!field) return;
+  const count = window.innerWidth < 640 ? 10 : 18;
+  for (let i = 0; i < count; i++) {
+    const em = document.createElement('div');
+    em.className = 'ember ' + (Math.random() > 0.55 ? 'gold' : 'blood');
+    const size = 2 + Math.random() * 4;
+    const left = Math.random() * 100;
+    const duration = 7 + Math.random() * 8;
+    const delay = Math.random() * 12;
+    const drift = (Math.random() * 80 - 40) + 'px';
+    em.style.cssText = `left:${left}%;width:${size}px;height:${size}px;--drift:${drift};animation-duration:${duration}s;animation-delay:-${delay}s;`;
+    field.appendChild(em);
+  }
+})();
+
+if (!reducedMotion) (function initDepthField() {
+  const canvas = document.getElementById('depth-field');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+  let w, h;
+  function resize() {
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  const colors = ['201,168,106', '216,30,58', '236,228,216'];
+  const count = window.innerWidth < 640 ? 18 : 32;
+  const sparks = Array.from({ length: count }, () => ({
+    x: Math.random() * w, y: Math.random() * h,
+    depth: 0.3 + Math.random() * 0.9,
+    r: 0.6 + Math.random() * 1.6,
+    c: colors[Math.floor(Math.random() * colors.length)],
+    vy: 0.05 + Math.random() * 0.12,
+    phase: Math.random() * Math.PI * 2
+  }));
+
+  let px = w / 2, py = h / 2, tpx = px, tpy = py;
+  document.addEventListener('mousemove', (e) => { tpx = e.clientX; tpy = e.clientY; }, { passive: true });
+
+  let running = true;
+  document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) draw(); });
+
+  let t = 0;
+  function draw() {
+    if (!running) return;
+    t += 1;
+    px += (tpx - px) * 0.05;
+    py += (tpy - py) * 0.05;
+    const offX = (px - w / 2) / w;
+    const offY = (py - h / 2) / h;
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const s of sparks) {
+      s.y -= s.vy;
+      if (s.y < -10) s.y = h + 10;
+      const parX = s.x + offX * 60 * s.depth;
+      const parY = s.y + offY * 40 * s.depth + Math.sin(t * 0.01 + s.phase) * 4;
+      const alpha = 0.15 + 0.35 * s.depth;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${s.c},${alpha})`;
+      ctx.arc(parX, parY, s.r * (0.7 + s.depth * 0.6), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
