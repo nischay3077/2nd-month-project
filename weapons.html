@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE DRAGON ARMORY — BGMI Universe</title>
+<meta name="description" content="The Dragon Armory — every Battlegrounds Mobile India weapon rendered as an ink-and-gold spirit relic. Tilt, scan and compare damage, range, fire rate, recoil and magazine size." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="THE DRAGON ARMORY — BGMI Universe" />
+<meta property="og:description" content="The Dragon Armory — every Battlegrounds Mobile India weapon rendered as an ink-and-gold spirit relic. Tilt, scan and compare damage, range, fire rate, recoil and magazine size." />
+<meta property="og:url" content="https://bgmiuniverse.com/weapons.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/M416.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/weapons.css" />
+</head>
+<body>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" disablePictureInPicture disableRemotePlayback>
+    <source src="weapons.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="bg-grid"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
+    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
+    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
+    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="weapons.html" class="nav-link active">WEAPONS</a>
+      <a href="maps.html" class="nav-link">MAPS</a>
+      <a href="vehicles.html" class="nav-link">VEHICLES</a>
+      <a href="characters.html" class="nav-link">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link">ESPORTS</a>
+    </div>
+    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link active">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
+</div>
+
+<section id="armory-head">
+  <div class="head-tag"><span class="head-dot"></span> SPIRIT-FORGE TELEMETRY — 19 UNITS CATALOGUED</div>
+  <h1 class="armory-h1">THE <span class="accent">DRAGON ARMORY</span></h1>
+  <p class="armory-desc">Every weapon in the arsenal, reforged in ink and gold leaf. Tilt a tablet to catch the mist-light, hover or tap a relic to pull its full combat telemetry, and strike one to send out a shockwave.</p>
+  <div class="armory-stats">
+    <div class="a-stat"><div class="a-stat-num">19</div><div class="a-stat-label">Weapons</div></div>
+    <div class="a-stat"><div class="a-stat-num">7</div><div class="a-stat-label">Classes</div></div>
+    <div class="a-stat"><div class="a-stat-num">3</div><div class="a-stat-label">Spirit Relics</div></div>
+  </div>
+</section>
+
+<div id="filter-wrap">
+  <button class="filter-pill active" data-filter="all">All Weapons</button>
+  <button class="filter-pill" data-filter="AR">Assault Rifles</button>
+  <button class="filter-pill" data-filter="Sniper">Sniper Rifles</button>
+  <button class="filter-pill" data-filter="DMR">DMR</button>
+  <button class="filter-pill" data-filter="SMG">SMGs</button>
+  <button class="filter-pill" data-filter="LMG">LMGs</button>
+  <button class="filter-pill" data-filter="Shotgun">Shotguns</button>
+</div>
+<div id="filter-count">SHOWING <b id="count-shown">19</b> / <b>19</b> UNITS</div>
+
+<main id="arsenal">
+  <div class="arsenal-grid" id="arsenalGrid"></div>
+</main>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+       <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="gallery.html" class="footer-link">Gallery</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">Dragon Armory</a>
+        <a href="equipment.html" class="footer-link">Scope &amp; Attachment Lab</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="characters.html" class="footer-link">Character Dossiers</a>
+        <a href="esports.html" class="footer-link">Esports Intel</a>
+      </div>
+    </div>
+      <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover)').matches;
+
+const nav = document.getElementById('nav');
+let scrollRAF = null, scrollEndTimer = null, isScrolling = false;
+function handleScroll() {
+  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', () => {
+  if (!isScrolling) {
+    isScrolling = true;
+    document.body.classList.add('is-scrolling');
+  }
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => {
+    isScrolling = false;
+    document.body.classList.remove('is-scrolling');
+  }, 150);
+  if (scrollRAF) return;
+  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
+}, { passive:true });
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const glow = document.getElementById('cursor-glow');
+let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my;
+let glowLoopRunning = false, glowIdleTimer = null;
+
+if (!reducedMotion && canHover && glow) {
+  function raf(){
+    const dx = mx - gx, dy = my - gy;
+    if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+      gx += dx * 0.12; gy += dy * 0.12;
+      glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`;
+      requestAnimationFrame(raf);
+    } else {
+      glowLoopRunning = false;
+    }
+  }
+  function ensureGlowLoop(){
+    if (!glowLoopRunning) { glowLoopRunning = true; requestAnimationFrame(raf); }
+  }
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    glow.style.opacity = '1';
+    ensureGlowLoop();
+  }, { passive:true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+}
+
+const bgVid = document.getElementById('bg-video');
+bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
+});
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+let audioUnlocked = false;
+
+function fadeVolume(video, to, duration = 700) {
+  const from = video.volume;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    video.volume = from + (to - from) * p;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function enableSound() {
+  if (!bgVid) return;
+  bgVid.muted = false;
+  bgVid.volume = 0;
+  bgVid.play().catch(() => {});
+  fadeVolume(bgVid, 0.55);
+  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
+  if (soundHint) soundHint.classList.remove('show');
+}
+function disableSound() {
+  if (!bgVid) return;
+  fadeVolume(bgVid, 0, 350);
+  setTimeout(() => { bgVid.muted = true; }, 370);
+  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
+}
+function firstGestureUnlock() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  enableSound();
+  document.removeEventListener('click', firstGestureUnlock);
+  document.removeEventListener('touchstart', firstGestureUnlock);
+  document.removeEventListener('keydown', firstGestureUnlock);
+}
+if (bgVid && soundToggle) {
+  document.addEventListener('click', firstGestureUnlock);
+  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
+  document.addEventListener('keydown', firstGestureUnlock);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioUnlocked = true;
+    if (bgVid.muted) enableSound(); else disableSound();
+  });
+
+  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
+  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
+}
+
+const weapons = [
+  { name:"M416",     category:"AR",      img:"M416.jpeg",    relic:"gold",   damage:41,  range:60,  fireRate:75, recoil:35, mag:30 },
+  { name:"AKM",       category:"AR",      img:"Akm.jpeg",     relic:"blood",  damage:47,  range:55,  fireRate:65, recoil:70, mag:30 },
+  { name:"AUG",       category:"AR",      img:"Aug.jpeg",     relic:"blood",  damage:41,  range:65,  fireRate:75, recoil:38, mag:30 },
+  { name:"AWM",       category:"Sniper",  img:"Awm.jpeg",     relic:"violet", damage:105, range:100, fireRate:10, recoil:90, mag:5  },
+  { name:"DP-28",     category:"LMG",     img:"Dp 28.jpeg",   relic:"blood",  damage:51,  range:65,  fireRate:55, recoil:55, mag:47 },
+  { name:"Groza",     category:"AR",      img:"Groza.jpeg",   relic:"blood",  damage:47,  range:55,  fireRate:75, recoil:65, mag:30 },
+  { name:"Kar98k",    category:"Sniper",  img:"Kar98k.jpeg",  relic:"gold",   damage:79,  range:85,  fireRate:15, recoil:75, mag:5  },
+  { name:"M24",       category:"Sniper",  img:"M24.jpeg",     relic:"gold",   damage:75,  range:90,  fireRate:20, recoil:60, mag:5  },
+  { name:"M762",      category:"AR",      img:"M762.jpeg",    relic:"blood",  damage:46,  range:55,  fireRate:70, recoil:68, mag:30 },
+  { name:"Mini 14",   category:"DMR",     img:"Mini 14.jpeg", relic:"gold",   damage:46,  range:80,  fireRate:40, recoil:45, mag:20 },
+  { name:"Mk14",      category:"DMR",     img:"Mk14.jpeg",    relic:"blood",  damage:61,  range:85,  fireRate:55, recoil:72, mag:10 },
+  { name:"P90",       category:"SMG",     img:"P90.jpeg",     relic:"violet", damage:35,  range:40,  fireRate:85, recoil:30, mag:50 },
+  { name:"S12K",      category:"Shotgun", img:"S12k.jpeg",    relic:"blood",  damage:24,  range:15,  fireRate:25, recoil:50, mag:5  },
+  { name:"S686",      category:"Shotgun", img:"s686.jpeg",    relic:"blood",  damage:26,  range:20,  fireRate:15, recoil:45, mag:2  },
+  { name:"SCAR-L",    category:"AR",      img:"Scar l.jpeg",  relic:"blood",  damage:41,  range:55,  fireRate:70, recoil:40, mag:30 },
+  { name:"Thompson",  category:"SMG",     img:"Thomson.jpeg", relic:"blood",  damage:40,  range:35,  fireRate:75, recoil:42, mag:30 },
+  { name:"UMP45",     category:"SMG",     img:"Ump45.jpeg",   relic:"gold",   damage:41,  range:35,  fireRate:65, recoil:38, mag:25 },
+  { name:"Uzi",       category:"SMG",     img:"Uzi.jpeg",     relic:"blood",  damage:26,  range:30,  fireRate:95, recoil:48, mag:25 },
+  { name:"Vector",    category:"SMG",     img:"Vector.jpeg",  relic:"violet", damage:31,  range:35,  fireRate:90, recoil:55, mag:25 }
+];
+const relicColor = { gold:['#f0d38a','rgba(201,161,90,.45)'], blood:['#5eead4','rgba(45,217,185,.5)'], violet:['#7fb8ee','rgba(58,111,168,.5)'] };
+const relicRarity = { gold:'Mythic Relic', blood:'Legendary Relic', violet:'Epic Relic' };
+const typeLabel = { AR:'Assault Rifle', Sniper:'Sniper Rifle', DMR:'Designated Marksman Rifle', SMG:'Submachine Gun', LMG:'Light Machine Gun', Shotgun:'Shotgun' };
+
+function radarSVG(w, hex){
+  const cx=46, cy=44, maxR=30;
+  const axes=[
+    { label:'DMG', value:w.damage,   max:120, angle:-90 },
+    { label:'RNG', value:w.range,    max:100, angle:0   },
+    { label:'RCL', value:w.recoil,   max:100, angle:90  },
+    { label:'ROF', value:w.fireRate, max:100, angle:180 }
+  ];
+  const pt=(a,r)=>{ const rad=a*Math.PI/180; return [cx+r*Math.cos(rad), cy+r*Math.sin(rad)]; };
+  const outer=axes.map(ax=>pt(ax.angle,maxR));
+  const inner=axes.map(ax=>pt(ax.angle,maxR*Math.min(ax.value/ax.max,1)));
+  const outerStr=outer.map(p=>p.join(',')).join(' ');
+  const innerStr=inner.map(p=>p.join(',')).join(' ');
+  const lines=axes.map((ax,i)=>`<line x1="${cx}" y1="${cy}" x2="${outer[i][0]}" y2="${outer[i][1]}" stroke="${hex}" stroke-opacity=".25" stroke-width="1"/>`).join('');
+  const labels=axes.map((ax,i)=>{ const [x,y]=pt(ax.angle,maxR+10); return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" class="radar-label">${ax.label}</text>`; }).join('');
+  return `<svg viewBox="0 0 92 88" width="92" height="88">
+    <polygon points="${outerStr}" fill="none" stroke="${hex}" stroke-opacity=".3" stroke-width="1"/>
+    ${lines}
+    <polygon points="${innerStr}" fill="${hex}" fill-opacity=".3" stroke="${hex}" stroke-width="1.3" style="filter:drop-shadow(0 0 4px ${hex})"/>
+    ${labels}
+  </svg>`;
+}
+
+const grid = document.getElementById('arsenalGrid');
+const countShown = document.getElementById('count-shown');
+let statBarObserver = null;
+
+function renderWeapons(filter='all'){
+  grid.innerHTML = '';
+  let n = 0;
+  const frag = document.createDocumentFragment();
+
+  weapons.forEach((w, idx) => {
+    if (filter !== 'all' && w.category !== filter) return;
+    n++;
+    const [hex, glowRgba] = relicColor[w.relic];
+    const rarity = relicRarity[w.relic];
+    const type = typeLabel[w.category];
+    const imgSrc = encodeURIComponent(w.img).replace(/'/g,"%27");
+
+    const scene = document.createElement('div');
+    scene.className = 'card-3d';
+    scene.dataset.category = w.category;
+
+    scene.innerHTML = `
+      <div class="card-face" style="--card-accent:${hex}; --card-accent-glow:${glowRgba}; --card-accent-a:${glowRgba};">
+        <span class="hud-corner tl"></span>
+        <span class="hud-corner tr"></span>
+        <span class="hud-corner bl"></span>
+        <span class="hud-corner br"></span>
+        <div class="card-top-edge"></div>
+        <div class="card-sheen"></div>
+        <div class="card-radar">${radarSVG(w, hex)}</div>
+
+        <div class="card-badge-row">
+          <div>
+            <div class="card-rarity">${rarity}</div>
+            <div class="card-name">${w.name}</div>
+          </div>
+          <div class="card-cat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 13h13l2-2h4v3h-2l-1 3H9l-1-2H2z"/><path d="M13 11V8h3"/></svg>
+            ${w.category}
+          </div>
+        </div>
+
+        <div class="card-stage">
+          <div class="stage-ring"></div>
+          <div class="stage-ring r2"></div>
+          <div class="stage-glow"></div>
+          <svg class="stage-fallback" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M2 13h13l2-2h4v3h-2l-1 3H9l-1-2H2z"/><path d="M13 11V8h3"/>
+          </svg>
+          <img src="${imgSrc}" alt="${w.name}" class="stage-icon" loading="${idx < 6 ? 'eager' : 'lazy'}" decoding="async" onerror="this.style.display='none'">
+          <div class="stage-scan"></div>
+        </div>
+
+        <div class="card-spec-strip">
+          <span>${type}</span><span class="dot">•</span><b>${w.mag} RND MAG</b>
+        </div>
+
+        <div class="card-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          TILT · HOVER OR TAP TO SCAN
+        </div>
+
+        <div class="stat-overlay">
+          <div class="stat-overlay-top">
+            <span class="stat-overlay-label">Full Telemetry</span>
+            <span class="stat-overlay-type">${type}</span>
+          </div>
+          <div class="stat-rows">
+            <div>
+              <div class="stat-row-label"><span>Damage</span><b>${w.damage}</b></div>
+              <div class="stat-track"><div class="stat-fill" data-w="${(w.damage/120)*100}"></div></div>
+            </div>
+            <div>
+              <div class="stat-row-label"><span>Range</span><b>${w.range}m</b></div>
+              <div class="stat-track"><div class="stat-fill" data-w="${(w.range/100)*100}"></div></div>
+            </div>
+            <div>
+              <div class="stat-row-label"><span>Fire Rate</span><b>${w.fireRate}</b></div>
+              <div class="stat-track"><div class="stat-fill" data-w="${(w.fireRate/100)*100}"></div></div>
+            </div>
+            <div>
+              <div class="stat-row-label"><span>Recoil</span><b>${w.recoil}</b></div>
+              <div class="stat-track"><div class="stat-fill" data-w="${(w.recoil/100)*100}"></div></div>
+            </div>
+          </div>
+          <div class="stat-overlay-foot">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="7" rx="1"/><path d="M9 9v11a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V9"/></svg>MAG <b>${w.mag}</b></span>
+            <span>CLASS <b>${w.category}</b></span>
+            <span>RELIC <b>${w.relic.toUpperCase()}</b></span>
+          </div>
+        </div>
+      </div>
+    `;
+    frag.appendChild(scene);
+  });
+
+  grid.appendChild(frag);
+
+  requestAnimationFrame(() => {
+    grid.querySelectorAll('.card-face').forEach(face => face.classList.add('visible'));
+  });
+
+  countShown.textContent = n;
+  attachCardInteractions();
+  animateStatBars();
+}
+
+function animateStatBars(){
+  if (statBarObserver) statBarObserver.disconnect();
+  statBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
+        statBarObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.2 });
+  document.querySelectorAll('.card-3d').forEach(c => statBarObserver.observe(c));
+}
+
+function attachCardInteractions(){
+  const cards = document.querySelectorAll('.card-3d');
+  cards.forEach(scene => {
+    const face = scene.querySelector('.card-face');
+    const MAX_TILT = 10;
+
+    if (canHover && !reducedMotion) {
+      let rect = null;
+      let tiltRAF = null, lastEvt = null;
+
+      scene.addEventListener('mouseenter', () => {
+        rect = scene.getBoundingClientRect();
+        face.classList.add('is-tilting');
+      }, { passive:true });
+
+      scene.addEventListener('mousemove', (e) => {
+        lastEvt = e;
+        if (tiltRAF) return;
+        tiltRAF = requestAnimationFrame(() => {
+          if (!rect) rect = scene.getBoundingClientRect();
+          const relX = (lastEvt.clientX - rect.left) / rect.width;
+          const relY = (lastEvt.clientY - rect.top) / rect.height;
+          const rotY = (relX - 0.5) * MAX_TILT * 2;
+          const rotX = (0.5 - relY) * MAX_TILT * 2;
+          face.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.035) translateZ(6px)`;
+          face.style.setProperty('--mx', (relX*100)+'%');
+          face.style.setProperty('--my', (relY*100)+'%');
+          tiltRAF = null;
+        });
+      }, { passive:true });
+
+      scene.addEventListener('mouseleave', () => {
+        rect = null;
+        face.classList.remove('is-tilting');
+        face.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
+      }, { passive:true });
+    }
+
+    scene.addEventListener('click', (e) => {
+      if (!canHover) {
+        const wasOpen = face.classList.contains('stats-open');
+        cards.forEach(c => c.querySelector('.card-face').classList.remove('stats-open'));
+        if (!wasOpen) face.classList.add('stats-open');
+      }
+
+      const r = scene.getBoundingClientRect();
+      const ring = document.createElement('div');
+      ring.className = 'impulse-ring';
+      ring.style.left = (e.clientX - r.left) + 'px';
+      ring.style.top = (e.clientY - r.top) + 'px';
+      face.appendChild(ring);
+      setTimeout(() => ring.remove(), 750);
+    });
+  });
+}
+
+renderWeapons();
+
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderWeapons(e.target.getAttribute('data-filter'));
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOTOR POOL — BGMI Universe</title>
+<meta name="description" content="The Motor Pool — every Battlegrounds Mobile India vehicle in a fast, cinematic garage grid with a full inspection console." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="MOTOR POOL — BGMI Universe" />
+<meta property="og:description" content="The Motor Pool — every Battlegrounds Mobile India vehicle in a fast, cinematic garage grid with a full inspection console." />
+<meta property="og:url" content="https://bgmiuniverse.com/vehicles.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/Dacia.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/vehicles.css" />
+</head>
+<body>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" disablePictureInPicture disableRemotePlayback>
+    <source src="vehicle.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="bg-grid"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 12,5 12,19 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/>
+    <path class="muted-x" d="M16 9l5 6M21 9l-5 6"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="weapons.html" class="nav-link">WEAPONS</a>
+      <a href="maps.html" class="nav-link">MAPS</a>
+      <a href="vehicles.html" class="nav-link active">VEHICLES</a>
+      <a href="characters.html" class="nav-link">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link">ESPORTS</a>
+    </div>
+    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link active">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
+</div>
+
+<section id="pool-head">
+  <div class="head-tag"><span class="head-dot"></span> MOTOR POOL — LIVE INVENTORY</div>
+  <h1 class="pool-h1">THE <span class="accent">MOTOR POOL</span></h1>
+  <p class="pool-desc">Every vehicle in the roster, benched and ready. Click any unit to pull its full inspection console — speed, durability and fuel efficiency at a glance.</p>
+  <div class="pool-stats">
+    <div class="pstat"><div class="pstat-num" id="statTotal">0</div><div class="pstat-label">Units Logged</div></div>
+    <div class="pstat"><div class="pstat-num" id="statFastest">0</div><div class="pstat-label">Top Speed km/h</div></div>
+    <div class="pstat"><div class="pstat-num" id="statTypes">0</div><div class="pstat-label">Classes</div></div>
+  </div>
+</section>
+
+<div id="filter-wrap">
+  <button class="filter-btn filter-pill active" data-filter="ALL">All Units</button>
+  <button class="filter-btn filter-pill" data-filter="4-Wheel">4-Wheel</button>
+  <button class="filter-btn filter-pill" data-filter="2-Wheel">2-Wheel</button>
+  <button class="filter-btn filter-pill" data-filter="Off-Road">Off-Road</button>
+  <button class="filter-btn filter-pill" data-filter="Water">Water</button>
+  <button class="filter-btn filter-pill" data-filter="Sports">Sports</button>
+</div>
+
+<div id="garage-wrap">
+  <div class="garage-grid" id="garage-grid"></div>
+</div>
+
+<div class="console" id="console">
+  <div class="console-content">
+    <button class="console-close" id="console-close">&times;</button>
+    <div class="console-stage">
+      <div class="console-stage-grid"></div>
+      <div class="console-glow"></div>
+      <img class="console-img" src="" alt="" id="console-img" onerror="this.style.display='none'">
+    </div>
+    <div class="console-info">
+      <div class="console-badge" id="console-badge"></div>
+      <h2 class="console-name" id="console-name"></h2>
+      <div class="console-sub" id="console-sub"></div>
+      <div class="console-dials" id="console-dials"></div>
+      <p class="console-desc" id="console-desc"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">Blood Armory</a>
+        <a href="maps.html" class="footer-link">War Table</a>
+        <a href="vehicles.html" class="footer-link">Motor Pool</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="esports.html" class="footer-link">Esports Intel</a>
+      </div>
+    </div>
+     <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover)').matches;
+
+const nav = document.getElementById('nav');
+let navRAF = null;
+window.addEventListener('scroll', () => {
+  if (navRAF) return;
+  navRAF = requestAnimationFrame(() => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    navRAF = null;
+  });
+}, { passive:true });
+
+let scrollEndTimer = null;
+window.addEventListener('scroll', () => {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
+}, { passive:true });
+
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const glow = document.getElementById('cursor-glow');
+if (!reducedMotion && canHover && glow) {
+  let mx = innerWidth/2, my = innerHeight/2, gx = mx, gy = my;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; glow.style.opacity = '1'; }, { passive:true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+  (function raf(){ gx += (mx-gx)*0.12; gy += (my-gy)*0.12; glow.style.transform = `translate(${gx-160}px, ${gy-160}px)`; requestAnimationFrame(raf); })();
+}
+
+const bgVid = document.getElementById('bg-video');
+bgVid.play().catch(() => {});
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+function enableSound(){ bgVid.muted = false; soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed','true'); soundHint.classList.remove('show'); }
+function disableSound(){ bgVid.muted = true; soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed','false'); }
+soundToggle.addEventListener('click', (e) => { e.stopPropagation(); bgVid.muted ? enableSound() : disableSound(); });
+setTimeout(() => { if (bgVid.muted) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2200);
+document.addEventListener('click', () => { if (soundHint.classList.contains('show')) soundHint.classList.remove('show'); }, { once:true, capture:true });
+
+const vehicles = [
+  { name:'UAZ', img:'Uaz.jpeg', type:'4-Wheel', accent:'blood', speed:97,  dur:80,  fuel:60, seats:4, desc:'A rugged all-terrain 4x4 built to shrug off rough ground and small-arms fire alike. Reliable, if not glamorous.' },
+  { name:'Dacia', img:'Dacia.jpeg', type:'4-Wheel', accent:'gold', speed:120, dur:60, fuel:80, seats:4, desc:'The squad workhorse — decent pace, easy on fuel, and enough seats to run the whole team to the next zone.' },
+  { name:'Buggy', img:'Buggy.jpeg', type:'Off-Road', accent:'violet', speed:110, dur:40, fuel:80, seats:2, desc:'Light, nimble and quick off the line. Trades armor for agility across dunes and broken terrain.' },
+  { name:'Motorcycle', img:'Bike.jpeg', type:'2-Wheel', accent:'blood', speed:152, dur:30, fuel:90, seats:2, desc:'The fastest thing on land. Blistering top speed comes at the cost of almost no protection for the rider.' },
+  { name:'Boat', img:'Boat.jpeg', type:'Water', accent:'gold', speed:80,  dur:50, fuel:40, seats:4, desc:'Essential for coastal rotations and river crossings — the only way to keep momentum once the road runs out.' },
+  { name:'Mirado', img:'Mirado.jpeg', type:'Sports', accent:'violet', speed:136, dur:40, fuel:30, seats:4, desc:'A classic muscle coupe with real straight-line speed, at the expense of a thirstier tank.' },
+  { name:'Monster Truck', img:'Monster truck.jpeg', type:'Off-Road', accent:'blood', speed:70,  dur:100, fuel:30, seats:2, desc:'Built like a tank on wheels. Slow and thirsty, but almost nothing on the ground can stop it.' }
+];
+const accentHex = { gold:'#f0d38a', blood:'#e2455f', violet:'#c8a3e8' };
+const accentVar = { gold:'var(--gold)', blood:'var(--blood-2)', violet:'var(--violet-2)' };
+const accentGlowVar = { gold:'var(--gold-glow)', blood:'var(--blood-glow)', violet:'var(--violet-glow)' };
+const maxSpeed = Math.max(...vehicles.map(v => v.speed));
+
+document.getElementById('statTotal').textContent = vehicles.length;
+document.getElementById('statFastest').textContent = maxSpeed;
+document.getElementById('statTypes').textContent = new Set(vehicles.map(v => v.type)).size;
+
+const grid = document.getElementById('garage-grid');
+let cardObserver = null;
+
+function renderGrid(filter){
+  if (cardObserver) cardObserver.disconnect();
+  const list = filter === 'ALL' ? vehicles : vehicles.filter(v => v.type === filter);
+  grid.innerHTML = '';
+
+  if (!list.length){
+    grid.innerHTML = '<div class="empty-note">// NO UNITS MATCH THIS FILTER //</div>';
+    return;
+  }
+
+  list.forEach((v, i) => {
+    const speedPct = Math.min((v.speed / maxSpeed) * 100, 100);
+    const card = document.createElement('div');
+    card.className = 'garage-card';
+    card.style.setProperty('--ac', accentVar[v.accent]);
+    card.style.setProperty('--ac-glow', accentGlowVar[v.accent]);
+    card.innerHTML = `
+      <div class="card-stage">
+        <div class="card-stage-grid"></div>
+        <div class="card-glow"></div>
+        <div class="card-ground"></div>
+        <div class="card-img-wrap"><img class="card-img" src="${encodeURIComponent(v.img)}" alt="${v.name}" loading="${i < 3 ? 'eager' : 'lazy'}" decoding="async" onerror="this.style.display='none'"></div>
+        <span class="card-index">UNIT ${String(i+1).padStart(2,'0')}</span>
+        <span class="card-badge">${v.type}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${v.name}</div>
+        <div class="card-sub">${v.type} · ${v.seats} Seats</div>
+        <div class="card-speed-row">
+          <span class="card-speed-label">Speed</span>
+          <div class="card-speed-track"><div class="card-speed-fill" data-w="${speedPct}"></div></div>
+          <span class="card-speed-val">${v.speed}</span>
+        </div>
+        <div class="card-inspect">OPEN CONSOLE →</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openConsole(v));
+    grid.appendChild(card);
+  });
+
+  cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        entry.target.querySelectorAll('.card-speed-fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+  grid.querySelectorAll('.garage-card').forEach(c => cardObserver.observe(c));
+
+  if (!reducedMotion && canHover){
+    grid.querySelectorAll('.garage-card').forEach(card => {
+      const wrap = card.querySelector('.card-img-wrap');
+      let ticking = false, lastX = 0, lastY = 0;
+      function apply(){
+        wrap.style.transform = `rotateY(${lastX*10}deg) rotateX(${-lastY*8}deg)`;
+        ticking = false;
+      }
+      card.addEventListener('pointerenter', () => { wrap.style.willChange = 'transform'; });
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        lastX = (e.clientX - r.left) / r.width - 0.5;
+        lastY = (e.clientY - r.top) / r.height - 0.5;
+        if (!ticking){ ticking = true; requestAnimationFrame(apply); }
+      });
+      card.addEventListener('pointerleave', () => { wrap.style.transform = ''; wrap.style.willChange = 'auto'; });
+    });
+  }
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid(btn.dataset.filter);
+  });
+});
+
+renderGrid('ALL');
+
+function dialSVG(pct, hex){
+  const r = 30, c = 2*Math.PI*r, offset = c - (pct/100)*c;
+  return `
+  <svg width="72" height="72" viewBox="0 0 76 76">
+    <circle cx="38" cy="38" r="${r}" fill="none" stroke="rgba(236,228,216,.09)" stroke-width="6"/>
+    <circle cx="38" cy="38" r="${r}" fill="none" stroke="${hex}" stroke-width="6" stroke-linecap="round"
+      stroke-dasharray="${c}" stroke-dashoffset="${c}" transform="rotate(-90 38 38)"
+      style="filter:drop-shadow(0 0 5px ${hex}); transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1);" data-target="${offset}"/>
+  </svg>`;
+}
+
+const consoleEl = document.getElementById('console');
+const consoleContent = consoleEl.querySelector('.console-content');
+
+function openConsole(v){
+  const hex = accentHex[v.accent] || accentHex.gold;
+  const speedPct = Math.min((v.speed / maxSpeed) * 100, 100);
+
+  consoleContent.style.setProperty('--ac', accentVar[v.accent]);
+  document.getElementById('console-img').src = encodeURIComponent(v.img);
+  document.getElementById('console-img').style.display = '';
+  document.getElementById('console-img').alt = v.name;
+  document.getElementById('console-badge').textContent = v.type.toUpperCase();
+  document.getElementById('console-badge').style.background = `linear-gradient(135deg, ${hex}, #fff)`;
+  document.getElementById('console-name').textContent = v.name;
+  document.getElementById('console-sub').textContent = `${v.seats} Seats · Class: ${v.type}`;
+  document.getElementById('console-desc').textContent = v.desc;
+  document.getElementById('console-dials').innerHTML = `
+    <div class="dial">${dialSVG(speedPct, hex)}<div class="dial-label">Speed</div><div class="dial-value">${v.speed} km/h</div></div>
+    <div class="dial">${dialSVG(v.dur, hex)}<div class="dial-label">Durability</div><div class="dial-value">${v.dur}%</div></div>
+    <div class="dial">${dialSVG(v.fuel, hex)}<div class="dial-label">Fuel Eff.</div><div class="dial-value">${v.fuel}%</div></div>
+  `;
+
+  consoleEl.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => {
+    consoleEl.querySelectorAll('circle[data-target]').forEach(c => {
+      requestAnimationFrame(() => { c.style.strokeDashoffset = c.getAttribute('data-target'); });
+    });
+  });
+}
+
+function closeConsole(){
+  consoleEl.classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('console-close').addEventListener('click', closeConsole);
+consoleEl.addEventListener('click', (e) => { if (e.target === consoleEl) closeConsole(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeConsole(); });
+</script>
+</body>
+</html>
