@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE COLOSSEUM — BGMI Universe Esports</title>
+<meta name="description" content="The Blood Moon Colosseum — live tournaments, team standings, the player leaderboard and the full match schedule for BGMI competitive play." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="THE COLOSSEUM — BGMI Universe Esports" />
+<meta property="og:description" content="The Blood Moon Colosseum — live tournaments, team standings, the player leaderboard and the full match schedule for BGMI competitive play." />
+<meta property="og:url" content="https://bgmiuniverse.com/esports.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/victor.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/esports.css" />
+</head>
+<body>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="metadata" disablePictureInPicture disableRemotePlayback>
+    <source src="home.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="bg-grid"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
+    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
+    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
+    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="weapons.html" class="nav-link">WEAPONS</a>
+      <a href="maps.html" class="nav-link">MAPS</a>
+      <a href="vehicles.html" class="nav-link">VEHICLES</a>
+      <a href="characters.html" class="nav-link">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link active">ESPORTS</a>
+    </div>
+    <a href="weapons.html" class="btn btn-blood btn-shimmer nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      ENTER ARSENAL
+    </a>
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link active">ESPORTS</a>
+</div>
+
+<section id="colosseum-hero">
+  <div class="head-tag"><span class="head-dot"></span> COMPETITIVE DIVISION — LIVE STANDINGS</div>
+  <h1 class="col-h1">THE <span class="accent">COLOSSEUM</span></h1>
+  <p class="col-desc">Where the Blood Moon's best settle it on the battleground. Tournaments, team standings, the player leaderboard and every match on the calendar — all in one command deck.</p>
+
+  <div class="countdown-hud" id="countdownHud">
+    <div class="cd-unit"><div class="cd-num" id="cdDays">00</div><div class="cd-label">Days</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cdHours">00</div><div class="cd-label">Hrs</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cdMins">00</div><div class="cd-label">Min</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cdSecs">00</div><div class="cd-label">Sec</div></div>
+    <div class="cd-info">
+      <div class="cd-info-label">Next Match</div>
+      <div class="cd-info-val">Team Soul vs GodLike Esports</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-wrap">
+  <div class="feature-card">
+    <div class="feature-glow"></div>
+    <div class="feature-badge">🏆 Upcoming Major</div>
+    <h2 class="feature-title">BGMI Masters Series 2026</h2>
+    <div class="feature-meta">
+      <div class="fm-item"><span class="fm-label">Prize Pool</span><span class="fm-val">₹1 Crore</span></div>
+      <div class="fm-item"><span class="fm-label">Dates</span><span class="fm-val">Sept 15–20, 2026</span></div>
+      <div class="fm-item"><span class="fm-label">Format</span><span class="fm-val">Squad</span></div>
+      <div class="fm-item"><span class="fm-label">Teams</span><span class="fm-val">16</span></div>
+    </div>
+    <div class="feature-actions">
+      <a href="#schedule" class="btn btn-blood btn-shimmer">REGISTER NOW</a>
+      <a href="#tournaments" class="btn btn-outline">VIEW BRACKET</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="tournaments">
+  <div class="section-head">
+    <div><div class="section-tag">Active Circuit</div><h2 class="section-title">Tournaments</h2></div>
+  </div>
+  <div class="tourney-grid" id="tourneyGrid"></div>
+</div>
+
+<div class="section-wrap">
+  <div class="section-head">
+    <div><div class="section-tag">Standings</div><h2 class="section-title">Top Teams</h2></div>
+  </div>
+  <div class="ladder" id="ladderList"></div>
+</div>
+
+<div class="section-wrap">
+  <div class="section-head">
+    <div><div class="section-tag">Individual Stats</div><h2 class="section-title">Player Leaderboard</h2></div>
+  </div>
+  <div class="lb-table-wrap">
+    <table class="lb-table">
+      <thead><tr><th>Rank</th><th>Player</th><th>Team</th><th>Kills</th><th>Wins</th><th>K/D</th></tr></thead>
+      <tbody id="lbBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section-wrap" id="schedule">
+  <div class="section-head">
+    <div><div class="section-tag">Calendar</div><h2 class="section-title">Match Schedule</h2></div>
+  </div>
+  <div class="schedule-list" id="scheduleList"></div>
+</div>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+       <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">Blood Armory</a>
+        <a href="maps.html" class="footer-link">War Table</a>
+        <a href="vehicles.html" class="footer-link">Motor Pool</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="esports.html" class="footer-link">The Colosseum</a>
+      </div>
+    </div>
+      <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover)').matches;
+
+const nav = document.getElementById('nav');
+let scrollRAF = null, scrollEndTimer = null;
+function handleScroll() {
+  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', () => {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
+  if (scrollRAF) return;
+  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
+}, { passive:true });
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const glow = document.getElementById('cursor-glow');
+let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my, rafRunning = false;
+if (!reducedMotion && canHover && glow) {
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; glow.style.opacity = '1'; }, { passive:true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+  function raf(){
+    if (document.hidden) { rafRunning = false; return; }
+    gx += (mx-gx)*0.12; gy += (my-gy)*0.12;
+    glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`;
+    requestAnimationFrame(raf);
+  }
+  function startRaf(){ if (!rafRunning) { rafRunning = true; requestAnimationFrame(raf); } }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) startRaf(); });
+  startRaf();
+}
+
+const bgVid = document.getElementById('bg-video');
+bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
+});
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+let audioUnlocked = false;
+
+function fadeVolume(video, to, duration = 700) {
+  const from = video.volume;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    video.volume = from + (to - from) * p;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function enableSound() {
+  if (!bgVid) return;
+  bgVid.muted = false;
+  bgVid.volume = 0;
+  bgVid.play().catch(() => {});
+  fadeVolume(bgVid, 0.55);
+  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
+  if (soundHint) soundHint.classList.remove('show');
+}
+function disableSound() {
+  if (!bgVid) return;
+  fadeVolume(bgVid, 0, 350);
+  setTimeout(() => { bgVid.muted = true; }, 370);
+  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
+}
+function firstGestureUnlock() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  enableSound();
+  document.removeEventListener('click', firstGestureUnlock);
+  document.removeEventListener('touchstart', firstGestureUnlock);
+  document.removeEventListener('keydown', firstGestureUnlock);
+}
+if (bgVid && soundToggle) {
+  document.addEventListener('click', firstGestureUnlock);
+  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
+  document.addEventListener('keydown', firstGestureUnlock);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioUnlocked = true;
+    if (bgVid.muted) enableSound(); else disableSound();
+  });
+
+  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
+  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
+}
+
+const nextMatch = new Date('2026-09-15T18:00:00+05:30').getTime();
+function tickCountdown(){
+  const diff = nextMatch - Date.now();
+  if (diff <= 0) { ['cdDays','cdHours','cdMins','cdSecs'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cdDays').textContent = String(d).padStart(2,'0');
+  document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cdMins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cdSecs').textContent = String(s).padStart(2,'0');
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
+
+const tournaments = [
+  { name:'BGMI Pro League', sub:'Season 5', status:'ongoing', statusLabel:'Ongoing', prize:'₹50L', detail:'32 franchise teams battling across a 6-week group stage before the top 12 advance to LAN finals in Mumbai.' },
+  { name:'BGMI Nationals', sub:'2026 Edition', status:'open', statusLabel:'Registration Open', prize:'₹25L', detail:'Open qualifiers running through August — any registered team can compete for one of 24 group-stage slots.' },
+  { name:'BGMI India Series', sub:'Q3 Recap', status:'done', statusLabel:'Completed', prize:'₹10L', detail:'Wrapped with Team Soul taking the trophy after a dominant Chicken Dinner streak in the grand finals.' }
+];
+const tourneyGrid = document.getElementById('tourneyGrid');
+tournaments.forEach(t => {
+  const card = document.createElement('div');
+  card.className = 'tourney-card';
+  card.innerHTML = `
+    <span class="status-pill ${t.status}"><span class="dotp"></span>${t.statusLabel}</span>
+    <div class="tourney-name">${t.name}</div>
+    <div class="tourney-sub">${t.sub}</div>
+    <div class="tourney-prize">Prize: ${t.prize}</div>
+    <div class="tourney-toggle">DETAILS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="tourney-detail"><div class="tourney-detail-inner">${t.detail}</div></div>
+  `;
+  card.addEventListener('click', () => card.classList.toggle('open'));
+  tourneyGrid.appendChild(card);
+});
+
+const teams = [
+  { name:'Team Soul', region:'India', pts:4820, wins:42 },
+  { name:'GodLike Esports', region:'India', pts:4650, wins:38 },
+  { name:'Enigma Gaming', region:'India', pts:4310, wins:35 },
+  { name:'Marcos Gaming', region:'India', pts:4200, wins:33 },
+  { name:'OR Esports', region:'India', pts:4100, wins:31 },
+  { name:'Orangutan Gaming', region:'Pan-Asia', pts:3980, wins:29 }
+];
+const maxPts = Math.max(...teams.map(t => t.pts));
+const ladderList = document.getElementById('ladderList');
+teams.forEach((t, i) => {
+  const row = document.createElement('div');
+  row.className = 'ladder-row';
+  row.style.animationDelay = (i*0.07) + 's';
+  row.innerHTML = `
+    <div class="ladder-rank">${i+1}</div>
+    <div class="ladder-team"><div class="ladder-team-name">${t.name}</div><div class="ladder-team-region">${t.region}</div></div>
+    <div class="ladder-bar-wrap">
+      <div class="ladder-bar-track"><div class="ladder-bar-fill" data-w="${(t.pts/maxPts)*100}"></div></div>
+      <div class="ladder-bar-label">${t.pts.toLocaleString()} PTS</div>
+    </div>
+    <div class="ladder-wins"><b>${t.wins}</b>WINS</div>
+  `;
+  ladderList.appendChild(row);
+});
+const ladderIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('.ladder-bar-fill').forEach(f => f.style.width = f.dataset.w+'%'); ladderIO.unobserve(e.target); } });
+}, { threshold:0.2 });
+document.querySelectorAll('.ladder-row').forEach(r => ladderIO.observe(r));
+
+const players = [
+  { name:'Mavi', team:'Soul', kills:2847, wins:156, kd:8.2 },
+  { name:'Jonathan', team:'GodLike', kills:2691, wins:142, kd:7.8 },
+  { name:'Neyoo', team:'Soul', kills:2580, wins:138, kd:7.1 },
+  { name:'Scout', team:'OR', kills:2410, wins:130, kd:6.9 },
+  { name:'Zgod', team:'Marcos', kills:2380, wins:128, kd:6.7 },
+  { name:'Snax', team:'Enigma', kills:2250, wins:110, kd:6.2 },
+  { name:'ClutchGod', team:'GodLike', kills:2180, wins:108, kd:5.9 },
+  { name:'Goblin', team:'Soul', kills:2090, wins:95, kd:5.8 },
+  { name:'Destro', team:'Orangutan', kills:2010, wins:92, kd:5.5 },
+  { name:'Omega', team:'Soul', kills:1980, wins:90, kd:5.3 }
+];
+const lbBody = document.getElementById('lbBody');
+players.forEach((p, i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="lb-rank">#${i+1}</td><td class="lb-player">${p.name}</td><td>${p.team}</td><td>${p.kills.toLocaleString()}</td><td>${p.wins}</td><td class="lb-kd">${p.kd.toFixed(1)}</td>`;
+  lbBody.appendChild(tr);
+});
+
+const schedule = [
+  { teamA:'Team Soul', teamB:'GodLike', tourney:'BGMI Masters Series 2026', round:'Group Stage · Match 1', date:'Sept 15, 2026', time:'18:00 IST' },
+  { teamA:'Enigma', teamB:'OR Esports', tourney:'BGMI Masters Series 2026', round:'Group Stage · Match 2', date:'Sept 15, 2026', time:'19:30 IST' },
+  { teamA:'Marcos Gaming', teamB:'Orangutan', tourney:'BGMI Pro League S5', round:'Week 5 · Match 3', date:'Sept 17, 2026', time:'17:00 IST' },
+  { teamA:'Team Soul', teamB:'Enigma', tourney:'BGMI Masters Series 2026', round:'Group Stage · Match 4', date:'Sept 18, 2026', time:'18:00 IST' }
+];
+const scheduleList = document.getElementById('scheduleList');
+schedule.forEach(m => {
+  const t = document.createElement('div');
+  t.className = 'ticket';
+  t.innerHTML = `
+    <div class="ticket-teams">${m.teamA} <span class="ticket-vs">VS</span> ${m.teamB}</div>
+    <div class="ticket-stage"><div class="ticket-tourney">${m.tourney}</div><div class="ticket-round">${m.round}</div></div>
+    <div class="ticket-time"><div class="ticket-date">${m.date}</div><div class="ticket-hour">${m.time}</div></div>
+  `;
+  scheduleList.appendChild(t);
+});
+</script>
+</body>
+</html>

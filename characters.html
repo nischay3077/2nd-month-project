@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OPERATOR ROSTER — BGMI Universe</title>
+<meta name="description" content="The Blood Moon Operator Roster — dossiers on every Battlegrounds Mobile India character, their abilities and combat profile." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BGMI Universe" />
+<meta property="og:title" content="OPERATOR ROSTER — BGMI Universe" />
+<meta property="og:description" content="The Blood Moon Operator Roster — dossiers on every Battlegrounds Mobile India character, their abilities and combat profile." />
+<meta property="og:url" content="https://bgmiuniverse.com/characters.html" />
+<meta property="og:image" content="https://bgmiuniverse.com/Andy.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/characters.css" />
+</head>
+<body>
+
+<div id="bg-wrap">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" disablePictureInPicture disableRemotePlayback>
+    <source src="2.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="bg-overlay"></div>
+<div id="bg-grid"></div>
+<div id="bg-vignette"></div>
+<div id="bg-scanline"></div>
+<div id="cursor-glow"></div>
+
+<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
+    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
+    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
+    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
+    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
+  </svg>
+</button>
+<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="weapons.html" class="nav-link">WEAPONS</a>
+      <a href="maps.html" class="nav-link">MAPS</a>
+      <a href="vehicles.html" class="nav-link">VEHICLES</a>
+      <a href="characters.html" class="nav-link active">CHARACTERS</a>
+      <a href="skins.html" class="nav-link">SKINS</a>
+      <a href="equipment.html" class="nav-link">EQUIPMENT</a>
+      <a href="esports.html" class="nav-link">ESPORTS</a>
+    </div>
+    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
+    <button id="nav-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="nav-mobile-link">HOME</a>
+  <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
+  <a href="maps.html" class="nav-mobile-link">MAPS</a>
+  <a href="vehicles.html" class="nav-mobile-link">VEHICLES</a>
+  <a href="characters.html" class="nav-mobile-link active">CHARACTERS</a>
+  <a href="skins.html" class="nav-mobile-link">SKINS</a>
+  <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
+  <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
+</div>
+
+<section id="roster-head">
+  <div class="head-tag"><span class="head-dot"></span> BIOMETRIC FILES — CLASSIFIED OPERATOR RECORDS</div>
+  <h1 class="roster-h1">THE <span class="accent">OPERATOR TERMINAL</span></h1>
+  <p class="roster-desc">Select an operator to pull their live dossier — signature ability, combat readouts, and field doctrine, straight from the Blood Moon campaign archive.</p>
+  <div class="roster-stats">
+    <div class="r-stat"><div class="r-stat-num">4</div><div class="r-stat-label">Operators</div></div>
+    <div class="r-stat"><div class="r-stat-num">4</div><div class="r-stat-label">Roles</div></div>
+    <div class="r-stat"><div class="r-stat-num">100%</div><div class="r-stat-label">Verified</div></div>
+  </div>
+</section>
+
+<div id="terminal">
+  <div id="op-rail"></div>
+  <div id="op-stage-wrap"></div>
+</div>
+
+<section id="compare">
+  <div class="compare-tag">DATA ANALYSIS</div>
+  <h2 class="compare-h2">OPERATOR <span class="accent">COMPARISON MATRIX</span></h2>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr><th>OPERATOR</th><th>SPEED</th><th>COMBAT</th><th>SUPPORT</th><th>DETECTION</th></tr>
+      </thead>
+      <tbody id="compareBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-accent-line"></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
+        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="weapons.html" class="footer-link">Weapons</a>
+        <a href="maps.html" class="footer-link">Maps</a>
+        <a href="vehicles.html" class="footer-link">Vehicles</a>
+        <a href="characters.html" class="footer-link">Characters</a>
+        <a href="skins.html" class="footer-link">Skins</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="esports.html" class="footer-link">Esports</a>
+      </div>
+      <div>
+        <div class="footer-col-title">LABS</div>
+        <a href="weapons.html" class="footer-link">Blood Armory</a>
+        <a href="maps.html" class="footer-link">War Table</a>
+        <a href="vehicles.html" class="footer-link">Motor Pool</a>
+        <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="characters.html" class="footer-link">Operator Roster</a>
+      </div>
+    </div>
+      <div class="footer-bottom">
+      <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
+      <span class="footer-note">Made by Nischay Samant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover)').matches;
+
+const nav = document.getElementById('nav');
+let scrollRAF = null, scrollEndTimer = null;
+function handleScroll() {
+  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', () => {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
+  if (scrollRAF) return;
+  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
+}, { passive:true });
+const navToggle = document.getElementById('nav-toggle');
+const navMobile = document.getElementById('nav-mobile');
+navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+
+const glow = document.getElementById('cursor-glow');
+let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my;
+if (!reducedMotion && canHover && glow) {
+  let glowRunning = false;
+  function raf(){
+    gx += (mx-gx)*0.12; gy += (my-gy)*0.12;
+    glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`;
+    if (Math.abs(mx-gx) > 0.4 || Math.abs(my-gy) > 0.4) requestAnimationFrame(raf);
+    else glowRunning = false;
+  }
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY; glow.style.opacity = '1';
+    if (!glowRunning) { glowRunning = true; requestAnimationFrame(raf); }
+  }, { passive:true });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+}
+
+const bgVid = document.getElementById('bg-video');
+bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
+});
+const soundToggle = document.getElementById('sound-toggle');
+const soundHint = document.getElementById('sound-hint');
+let audioUnlocked = false;
+
+function fadeVolume(video, to, duration = 700) {
+  const from = video.volume;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    video.volume = from + (to - from) * p;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function enableSound() {
+  if (!bgVid) return;
+  bgVid.muted = false;
+  bgVid.volume = 0;
+  bgVid.play().catch(() => {});
+  fadeVolume(bgVid, 0.55);
+  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
+  if (soundHint) soundHint.classList.remove('show');
+}
+function disableSound() {
+  if (!bgVid) return;
+  fadeVolume(bgVid, 0, 350);
+  setTimeout(() => { bgVid.muted = true; }, 370);
+  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
+}
+function firstGestureUnlock() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  enableSound();
+  document.removeEventListener('click', firstGestureUnlock);
+  document.removeEventListener('touchstart', firstGestureUnlock);
+  document.removeEventListener('keydown', firstGestureUnlock);
+}
+if (bgVid && soundToggle) {
+  document.addEventListener('click', firstGestureUnlock);
+  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
+  document.addEventListener('keydown', firstGestureUnlock);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioUnlocked = true;
+    if (bgVid.muted) enableSound(); else disableSound();
+  });
+
+  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
+  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
+}
+
+const accentHex = { gold:'#f0d38a', blood:'#e2455f', violet:'#c8a3e8' };
+const operators = [
+  {
+    name:'ANDY', role:'SCOUT', accent:'gold', img:'Andy.jpeg',
+    abilityTag:'SIGNATURE ABILITY', abilityName:'Eagle Eye',
+    abilityDesc:'Spots enemies at extreme distance with enhanced optical precision, marking threats before they close the gap.',
+    speed:80, combat:60, support:40, detection:96,
+    doctrine:'Deployed as the squad\u2019s forward set of eyes — Andy holds the high ground, calls rotations early, and lets the team fight on their own terms.'
+  },
+  {
+    name:'CARLO', role:'ASSAULT', accent:'blood', img:'Carlo.jpeg',
+    abilityTag:'SIGNATURE ABILITY', abilityName:'Iron Fist',
+    abilityDesc:'Massively increased unarmed damage, turning close-quarter brawls into a one-sided execution.',
+    speed:70, combat:92, support:30, detection:52,
+    doctrine:'The tip of the spear in every building clear — Carlo pushes first, absorbs the opening exchange, and forces the enemy squad to fight uphill.'
+  },
+  {
+    name:'SARA', role:'MEDIC', accent:'violet', img:'Sara.jpeg',
+    abilityTag:'SIGNATURE ABILITY', abilityName:'Healing Wave',
+    abilityDesc:'Faster medkit application and a passive regeneration aura that keeps the whole squad standing longer.',
+    speed:60, combat:50, support:100, detection:48,
+    doctrine:'The squad\u2019s lifeline — Sara trades personal aggression for uptime, keeping teammates topped up through even the longest firefights.'
+  },
+  {
+    name:'VICTOR', role:'SMG SPECIALIST', accent:'gold', img:'Victor.jpeg',
+    abilityTag:'SIGNATURE ABILITY', abilityName:'Weapon Master',
+    abilityDesc:'Drastically reduced SMG reload times, enabling relentless suppressive fire in close-range engagements.',
+    speed:85, combat:75, support:20, detection:44,
+    doctrine:'A close-range menace built for compounds and city fights — Victor clears rooms fast and rarely stops to reload.'
+  }
+];
+const starsData = [
+  { name:'ANDY', speed:4, combat:3, support:2, detection:5 },
+  { name:'CARLO', speed:3, combat:5, support:2, detection:3 },
+  { name:'SARA', speed:3, combat:2, support:5, detection:3 },
+  { name:'VICTOR', speed:4, combat:4, support:1, detection:3 }
+];
+
+function dialSVG(pct, hex){
+  const r = 28, c = 2*Math.PI*r, offset = c - (pct/100)*c;
+  return `
+  <svg width="70" height="70" viewBox="0 0 70 70">
+    <circle cx="35" cy="35" r="${r}" fill="none" stroke="rgba(236,228,216,.09)" stroke-width="6"/>
+    <circle cx="35" cy="35" r="${r}" fill="none" stroke="${hex}" stroke-width="6" stroke-linecap="round"
+      stroke-dasharray="${c}" stroke-dashoffset="${c}" transform="rotate(-90 35 35)"
+      style="filter:drop-shadow(0 0 6px ${hex}); transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1);" data-target="${offset}"/>
+    <text x="35" y="40" text-anchor="middle" font-family="Orbitron" font-weight="700" font-size="13" fill="${hex}">${pct}</text>
+  </svg>`;
+}
+
+function starRow(n){
+  return `<span class="stars">${'★'.repeat(n)}${'☆'.repeat(5-n)}</span>`;
+}
+
+const railEl = document.getElementById('op-rail');
+railEl.innerHTML = operators.map((o, i) => {
+  const hex = accentHex[o.accent] || accentHex.gold;
+  return `
+  <div class="op-chip${i === 0 ? ' active' : ''}" data-idx="${i}" style="--op-accent:${hex}" tabindex="0" role="button" aria-label="View ${o.name} dossier">
+    <div class="op-chip-img-wrap">
+      <img src="${encodeURIComponent(o.img)}" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder-op" style="display:none;">${o.name.charAt(0)}</div>
+      <div class="op-chip-scan"></div>
+      <div class="op-chip-num">${String(i+1).padStart(2,'0')}</div>
+    </div>
+    <div class="op-chip-foot">
+      <div class="op-chip-name">${o.name}</div>
+      <div class="op-chip-role">${o.role}</div>
+    </div>
+  </div>`;
+}).join('');
+
+const stageEl = document.getElementById('op-stage-wrap');
+
+function renderStage(i, animateDials = true){
+  const o = operators[i];
+  const hex = accentHex[o.accent] || accentHex.gold;
+  stageEl.style.setProperty('--op-accent', hex);
+  stageEl.innerHTML = `
+    <div class="op-stage">
+      <div class="op-stage-aura"></div>
+      <div class="op-stage-ring" style="left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+      <div class="op-stage-ring r2" style="left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+      <div class="op-stage-tick" style="left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+      <div class="op-stage-corner tl"></div>
+      <div class="op-stage-corner br"></div>
+      <div class="op-unit-num">FILE ${String(i+1).padStart(2,'0')} / ${String(operators.length).padStart(2,'0')}</div>
+      <div class="op-portrait-frame">
+        <img src="${encodeURIComponent(o.img)}" alt="${o.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-op" style="display:none;">${o.name.charAt(0)}</div>
+        <div class="op-portrait-scrim"></div>
+        <div class="op-role-tag">${o.role}</div>
+      </div>
+    </div>
+    <div class="op-panel">
+      <div>
+        <div class="op-ability-tag">${o.abilityTag}</div>
+        <div class="op-name">${o.name}</div>
+      </div>
+      <div>
+        <div class="op-ability-name">${o.abilityName}</div>
+        <p class="op-ability-desc">${o.abilityDesc}</p>
+      </div>
+      <div class="op-dials">
+        <div class="op-dial">${dialSVG(o.speed, hex)}<div class="op-dial-label">Speed</div></div>
+        <div class="op-dial">${dialSVG(o.combat, hex)}<div class="op-dial-label">Combat</div></div>
+        <div class="op-dial">${dialSVG(o.support, hex)}<div class="op-dial-label">Support</div></div>
+      </div>
+      <div class="op-doctrine">
+        <div class="op-doctrine-label">Field Doctrine</div>
+        <div class="op-doctrine-value">${o.doctrine}</div>
+        <div class="op-detection">Detection Rating — <b>${o.detection} / 100</b></div>
+      </div>
+    </div>`;
+  if (animateDials) {
+    stageEl.querySelectorAll('circle[data-target]').forEach(c => {
+      requestAnimationFrame(() => { c.style.strokeDashoffset = c.getAttribute('data-target'); });
+    });
+  }
+}
+renderStage(0);
+
+railEl.querySelectorAll('.op-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const idx = Number(chip.dataset.idx);
+    railEl.querySelectorAll('.op-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    renderStage(idx);
+  });
+  chip.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); chip.click(); } });
+});
+
+const stageMotionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { stageEl.classList.toggle('op-offscreen', !entry.isIntersecting); });
+}, { rootMargin: '200px 0px', threshold: 0 });
+stageMotionObserver.observe(stageEl);
+
+document.getElementById('compareBody').innerHTML = starsData.map(s => `
+  <tr>
+    <td class="op-cell">${s.name}</td>
+    <td>${starRow(s.speed)}</td>
+    <td>${starRow(s.combat)}</td>
+    <td>${starRow(s.support)}</td>
+    <td>${starRow(s.detection)}</td>
+  </tr>`).join('');
+</script>
+</body>
+</html>
