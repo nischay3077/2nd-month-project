@@ -550,35 +550,323 @@ footer{ background:var(--void); border-top:1px solid rgba(201,168,106,.16); padd
 
 body.is-scrolling *{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
 
-/* ================= RESPONSIVE ENHANCEMENT ================= */
-@media (max-width: 768px){
-  html, body{ width:100%; max-width:100%; overflow-x:hidden; }
-  *, *::before, *::after{ max-width:100%; }
-  img, video, iframe, svg{ max-width:100%; }
-  button, a{ max-width:100%; }
-  p, h1, h2, h3, h4, h5, h6{ overflow-wrap:break-word; }
-  .nav-inner, .footer-inner, .section-wrap, #terminal, #compare, #arsenal, #roster, #briefing, #lab-wrap, #garage-wrap, #vault-wrap, #forge-feature, #featured, #maps-showcase{ width:100%; max-width:100%; }
-  .nav-inner{ padding-left:1rem; padding-right:1rem; }
-  #nav-mobile{ padding-left:1rem; padding-right:1rem; }
-  .footer-inner{ padding-left:1rem; padding-right:1rem; }
-  .btn{ min-width:0; white-space:normal; text-align:center; }
-  .hero-actions, .filter-wrap, #filter-wrap, #roster-filter{ max-width:100%; }
+@media (max-width:900px){
+  #nav .nav-links,
+  #nav .nav-cta{display:none;}
+
+  #nav-toggle{display:flex;}
+
+  .nav-inner{padding-left:1rem;padding-right:1rem;}
+
+  .hero-rays{
+    width:700px;
+    height:700px;
+    right:-250px;
+    top:-8%;
+  }
+
+  .hero-moon-glow{
+    width:320px;
+    height:320px;
+    right:-70px;
+    top:10%;
+  }
 }
 
-@media (max-width: 600px){
-  .hero-inner, .briefing-frame, .forge-hero, .mag-hero, .console-content, .feature-layout{ width:100%; min-width:0; }
-  .hero-h1, .war-h1, .col-h1, .roster-h1, .lab-h1, .pool-h1, .vault-h1{ max-width:100%; overflow-wrap:anywhere; }
-  .hero-actions{ flex-wrap:wrap; }
-  .hero-actions .btn{ flex:1 1 100%; width:100%; }
-  .filter-pill, .filter-btn, .nav-link, .nav-mobile-link{ max-width:100%; }
-  .footer-grid{ grid-template-columns:1fr !important; }
+@media (max-width:768px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  img,video,iframe,svg{
+    max-width:100%;
+  }
+
+  .nav-inner,
+  .footer-inner,
+  .featured-inner,
+  .maps-inner,
+  .strip-header,
+  .weapons-grid{
+    width:100%;
+    max-width:100%;
+  }
+
+  #nav-mobile{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  #hero{
+    padding:105px 1rem 50px;
+    min-height:100svh;
+    overflow:hidden;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    width:100%;
+    gap:1.5rem;
+  }
+
+  .hero-tag{
+    max-width:100%;
+    white-space:normal;
+    line-height:1.45;
+  }
+
+  .hero-h1{
+    max-width:100%;
+    font-size:clamp(2.15rem,10vw,3.2rem);
+    line-height:1.05;
+    overflow-wrap:break-word;
+  }
+
+  .hero-sub{
+    font-size:.82rem;
+    letter-spacing:.12em;
+    line-height:1.5;
+  }
+
+  .hero-desc{
+    max-width:100%;
+    font-size:1rem;
+    line-height:1.5;
+  }
+
+  .hero-actions{
+    width:100%;
+    gap:.7rem;
+    flex-wrap:wrap;
+  }
+
+  .hero-actions .btn{
+    min-width:0;
+    padding:.75rem 1rem;
+    font-size:.62rem;
+    letter-spacing:.08em;
+  }
+
+  .hero-stats{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1rem 0;
+  }
+
+  .stat-item{
+    min-width:0;
+    margin:0;
+    padding:0 1rem 0 0;
+  }
+
+  .stat-item:nth-child(2n){
+    border-right:none;
+    padding-left:1rem;
+  }
+
+  .stat-num{font-size:1.8rem;}
+  .stat-label{font-size:.52rem;letter-spacing:.1em;}
+
+  .hero-right{
+    width:100%;
+    min-width:0;
+  }
+
+  .relic-stage{
+    width:100%;
+    height:280px;
+  }
+
+  .relic-3d{
+    width:180px;
+    height:180px;
+  }
+
+  .relic-core{inset:58px;}
+  .relic-ring.r2{inset:17px;}
+  .relic-ring.r3{inset:34px;}
+  .relic-glow{inset:-38px;}
+
+  .intel-ticker{max-width:100%;}
+
+  .ops-grid,
+  .maps-grid{
+    grid-template-columns:1fr;
+  }
+
+  .weapons-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  .op-card,
+  .weapon-mini,
+  .map-card{
+    min-width:0;
+    max-width:100%;
+  }
+
+  .map-card{height:250px;}
+
+  .nav-links,
+  .nav-cta{display:none;}
+  #nav-toggle{display:flex;}
+
+  .footer-grid{grid-template-columns:1fr;}
+
+  #cursor-glow{display:none;}
+
+  #featured{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  .strip-header{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  #maps-showcase{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  footer{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
 }
 
-@media (max-width: 420px){
-  .nav-logo-text{ font-size:.76rem; letter-spacing:.07em; }
-  .nav-logo-icon{ width:32px; height:32px; }
-  .nav-inner{ padding-left:.75rem; padding-right:.75rem; }
-  .footer-inner{ padding-left:.75rem; padding-right:.75rem; }
-  .filter-wrap, #filter-wrap, #roster-filter{ padding-left:.75rem; padding-right:.75rem; }
+@media (max-width:600px){
+  #hero{padding-top:100px;}
+
+  .hero-actions .btn{
+    width:100%;
+    flex:1 1 100%;
+  }
+
+  .hero-rays{
+    width:560px;
+    height:560px;
+    right:-260px;
+    top:-4%;
+  }
+
+  .hero-moon-glow{
+    width:270px;
+    height:270px;
+    right:-80px;
+    top:14%;
+  }
+
+  .relic-stage{height:240px;}
+  .relic-3d{width:160px;height:160px;}
+  .relic-core{inset:52px;}
+  .relic-ring.r2{inset:15px;}
+  .relic-ring.r3{inset:30px;}
+
+  .featured-header,
+  .strip-header{
+    align-items:flex-start;
+  }
+
+  .featured-header .btn,
+  .strip-header .btn{
+    width:100%;
+  }
+
+  .op-card{padding:1.35rem;}
+  .op-card-img-wrap{height:175px;}
+
+  #featured,
+  #weapons-strip,
+  #maps-showcase{
+    padding-top:4.5rem;
+    padding-bottom:4.5rem;
+  }
+
+  .map-card{height:235px;}
+
+  .footer-grid{grid-template-columns:1fr !important;}
+  .footer-bottom{align-items:flex-start;}
 }
-/* ========================================================= */
+
+@media (max-width:500px){
+  .weapons-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:420px){
+  .nav-inner{padding:0 .75rem;}
+  .nav-logo{gap:8px;}
+  .nav-logo-text{font-size:.76rem;letter-spacing:.07em;}
+  .nav-logo-icon{width:32px;height:32px;}
+
+  #hero{padding:100px .75rem 42px;}
+
+  .hero-tag{
+    font-size:.58rem;
+    letter-spacing:.1em;
+    padding:.35rem .7rem;
+  }
+
+  .hero-h1{
+    font-size:clamp(2rem,10.5vw,2.7rem);
+  }
+
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .stat-num{font-size:1.6rem;}
+  .stat-label{font-size:.48rem;}
+
+  .relic-stage{height:215px;}
+  .relic-3d{width:145px;height:145px;}
+  .relic-core{inset:47px;}
+  .relic-ring.r2{inset:13px;}
+  .relic-ring.r3{inset:27px;}
+
+  .op-card{padding:1.15rem;}
+  .op-card-img-wrap{height:155px;}
+  .op-title{font-size:1.35rem;}
+  .op-desc{font-size:1rem;}
+
+  .weapon-mini-media{height:100px;}
+  .weapon-mini-name{font-size:1.15rem;}
+
+  .map-card{height:220px;}
+
+  #featured,
+  #weapons-strip,
+  #maps-showcase{
+    padding-left:.75rem;
+    padding-right:.75rem;
+  }
+
+  .strip-header,
+  .weapons-grid{
+    padding-left:.75rem;
+    padding-right:.75rem;
+  }
+
+  footer{padding-left:.75rem;padding-right:.75rem;}
+  .footer-inner{padding-left:.75rem;padding-right:.75rem;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  #intro{transition:none;}
+  .ember,
+  #bg-scanline::after,
+  .hero-rays,
+  .hero-moon-glow,
+  .hero-tag-dot,
+  .hero-h1 .accent,
+  .intro-ring svg,
+  .relic-3d,
+  .relic-glow,
+  .intel-track{animation:none !important;}
+  .reveal{transition:none;opacity:1;transform:none;}
+  #depth-field{display:none;}
+}

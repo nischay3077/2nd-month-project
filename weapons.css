@@ -391,35 +391,337 @@ body.is-scrolling #sound-toggle{
   backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
 }
 
-/* ================= RESPONSIVE ENHANCEMENT ================= */
-@media (max-width: 768px){
-  html, body{ width:100%; max-width:100%; overflow-x:hidden; }
-  *, *::before, *::after{ max-width:100%; }
-  img, video, iframe, svg{ max-width:100%; }
-  button, a{ max-width:100%; }
-  p, h1, h2, h3, h4, h5, h6{ overflow-wrap:break-word; }
-  .nav-inner, .footer-inner, .section-wrap, #terminal, #compare, #arsenal, #roster, #briefing, #lab-wrap, #garage-wrap, #vault-wrap, #forge-feature, #featured, #maps-showcase{ width:100%; max-width:100%; }
-  .nav-inner{ padding-left:1rem; padding-right:1rem; }
-  #nav-mobile{ padding-left:1rem; padding-right:1rem; }
-  .footer-inner{ padding-left:1rem; padding-right:1rem; }
-  .btn{ min-width:0; white-space:normal; text-align:center; }
-  .hero-actions, .filter-wrap, #filter-wrap, #roster-filter{ max-width:100%; }
+@media (max-width:1100px){
+  .arsenal-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 
-@media (max-width: 600px){
-  .hero-inner, .briefing-frame, .forge-hero, .mag-hero, .console-content, .feature-layout{ width:100%; min-width:0; }
-  .hero-h1, .war-h1, .col-h1, .roster-h1, .lab-h1, .pool-h1, .vault-h1{ max-width:100%; overflow-wrap:anywhere; }
-  .hero-actions{ flex-wrap:wrap; }
-  .hero-actions .btn{ flex:1 1 100%; width:100%; }
-  .filter-pill, .filter-btn, .nav-link, .nav-mobile-link{ max-width:100%; }
-  .footer-grid{ grid-template-columns:1fr !important; }
+@media (max-width:768px){
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .nav-inner{
+    width:100%;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  .nav-links,
+  .nav-cta{
+    display:none;
+  }
+
+  #nav-toggle{
+    display:flex;
+  }
+
+  #nav-mobile{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  #cursor-glow{
+    display:none;
+  }
+
+  #armory-head{
+    width:100%;
+    max-width:100%;
+    padding:120px 1rem 42px;
+    overflow:hidden;
+  }
+
+  .head-tag{
+    max-width:100%;
+    white-space:normal;
+    text-align:center;
+    line-height:1.4;
+  }
+
+  .armory-h1{
+    max-width:100%;
+    font-size:clamp(2.4rem,8vw,4rem);
+    line-height:1.05;
+    overflow-wrap:anywhere;
+  }
+
+  .armory-desc{
+    max-width:100%;
+    font-size:1rem;
+    line-height:1.5;
+  }
+
+  .armory-stats{
+    max-width:100%;
+  }
+
+  .a-stat{
+    min-width:0;
+  }
+
+  .a-stat-label{
+    overflow-wrap:anywhere;
+  }
+
+  #filter-wrap{
+    width:100%;
+    max-width:100%;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  .filter-pill{
+    min-width:0;
+    max-width:100%;
+  }
+
+  #filter-count{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  #arsenal{
+    width:100%;
+    max-width:1400px;
+    padding-left:1rem;
+    padding-right:1rem;
+    overflow:hidden;
+  }
+
+  .arsenal-grid{
+    width:100%;
+    min-width:0;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1.25rem;
+  }
+
+  .card-3d{
+    width:100%;
+    min-width:0;
+  }
+
+  .card-face{
+    width:100%;
+    min-width:0;
+    padding:1.4rem 1.15rem 1.25rem;
+  }
+
+  .card-badge-row{
+    min-width:0;
+  }
+
+  .card-badge-row > div:first-child{
+    min-width:0;
+  }
+
+  .card-name{
+    overflow-wrap:anywhere;
+  }
+
+  .card-cat{
+    flex-shrink:0;
+  }
+
+  .card-stage{
+    width:100%;
+    min-width:0;
+    height:190px;
+    overflow:hidden;
+  }
+
+  .stage-icon{
+    display:block;
+    width:auto;
+    max-width:92%;
+    height:auto;
+    max-height:150px;
+    object-fit:contain;
+    object-position:center;
+  }
+
+  .stage-scan{
+    display:none;
+  }
+
+  .card-spec-strip{
+    max-width:100%;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:.35rem;
+  }
+
+  .card-hint{
+    max-width:100%;
+    white-space:normal;
+    text-align:center;
+  }
+
+  .stat-overlay{
+    width:100%;
+    max-width:100%;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
 }
 
-@media (max-width: 420px){
-  .nav-logo-text{ font-size:.76rem; letter-spacing:.07em; }
-  .nav-logo-icon{ width:32px; height:32px; }
-  .nav-inner{ padding-left:.75rem; padding-right:.75rem; }
-  .footer-inner{ padding-left:.75rem; padding-right:.75rem; }
-  .filter-wrap, #filter-wrap, #roster-filter{ padding-left:.75rem; padding-right:.75rem; }
+@media (max-width:520px){
+  .arsenal-grid{
+    grid-template-columns:1fr;
+    gap:1.2rem;
+  }
+
+  .card-face{
+    padding:1.35rem 1rem 1.2rem;
+  }
+
+  .card-stage{
+    height:210px;
+  }
+
+  .stage-icon{
+    max-width:94%;
+    max-height:175px;
+  }
+
+  .card-name{
+    font-size:1.25rem;
+  }
+
+  .card-spec-strip{
+    font-size:.58rem;
+  }
+
+  .filter-pill{
+    flex:1 1 calc(50% - .5rem);
+  }
 }
-/* ========================================================= */
+
+@media (max-width:420px){
+  .nav-inner{
+    padding-left:.75rem;
+    padding-right:.75rem;
+  }
+
+  .nav-logo-text{
+    font-size:.78rem;
+    letter-spacing:.08em;
+  }
+
+  .nav-logo-icon{
+    width:32px;
+    height:32px;
+  }
+
+  .nav-logo{
+    gap:8px;
+  }
+
+  #armory-head{
+    padding:108px .75rem 38px;
+  }
+
+  .armory-h1{
+    font-size:clamp(2.05rem,10vw,2.75rem);
+  }
+
+  .armory-desc{
+    font-size:.95rem;
+  }
+
+  .armory-stats{
+    width:100%;
+  }
+
+  .a-stat{
+    padding-left:.35rem;
+    padding-right:.35rem;
+  }
+
+  .a-stat-num{
+    font-size:1.35rem;
+  }
+
+  .a-stat-label{
+    font-size:.46rem;
+  }
+
+  #filter-wrap{
+    padding-left:.75rem;
+    padding-right:.75rem;
+  }
+
+  .filter-pill{
+    flex:1 1 calc(50% - .4rem);
+    padding:.55rem .45rem;
+    font-size:.56rem;
+  }
+
+  #arsenal{
+    padding-left:.65rem;
+    padding-right:.65rem;
+  }
+
+  .card-face{
+    padding:1.2rem .8rem 1rem;
+  }
+
+  .card-stage{
+    height:190px;
+  }
+
+  .stage-icon{
+    max-width:96%;
+    max-height:160px;
+  }
+
+  .card-spec-strip{
+    font-size:.54rem;
+  }
+
+  .card-hint{
+    font-size:.5rem;
+  }
+
+  .footer-inner{
+    padding-left:.75rem;
+    padding-right:.75rem;
+  }
+}
+
+@media (max-width:360px){
+  .nav-logo-text{
+    font-size:.68rem;
+  }
+
+  .head-tag{
+    font-size:.52rem;
+  }
+
+  .armory-h1{
+    font-size:2rem;
+  }
+
+  .filter-pill{
+    flex:1 1 100%;
+  }
+
+  .card-stage{
+    height:175px;
+  }
+
+  .stage-icon{
+    max-height:145px;
+  }
+}
