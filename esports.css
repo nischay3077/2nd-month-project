@@ -224,3 +224,37 @@ footer{ position:relative; border-top:1px solid rgba(201,168,106,.16); backgroun
 }
 
 body.is-scrolling *{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+
+
+/* ================= RESPONSIVE ENHANCEMENT ================= */
+@media (max-width: 768px){
+  html, body{ width:100%; max-width:100%; overflow-x:hidden; }
+  *, *::before, *::after{ max-width:100%; }
+  img, video, iframe, svg{ max-width:100%; }
+  button, a{ max-width:100%; }
+  p, h1, h2, h3, h4, h5, h6{ overflow-wrap:break-word; }
+  .nav-inner, .footer-inner, .section-wrap, #terminal, #compare, #arsenal, #roster, #briefing, #lab-wrap, #garage-wrap, #vault-wrap, #forge-feature, #featured, #maps-showcase{ width:100%; max-width:100%; }
+  .nav-inner{ padding-left:1rem; padding-right:1rem; }
+  #nav-mobile{ padding-left:1rem; padding-right:1rem; }
+  .footer-inner{ padding-left:1rem; padding-right:1rem; }
+  .btn{ min-width:0; white-space:normal; text-align:center; }
+  .hero-actions, .filter-wrap, #filter-wrap, #roster-filter{ max-width:100%; }
+}
+
+@media (max-width: 600px){
+  .hero-inner, .briefing-frame, .forge-hero, .mag-hero, .console-content, .feature-layout{ width:100%; min-width:0; }
+  .hero-h1, .war-h1, .col-h1, .roster-h1, .lab-h1, .pool-h1, .vault-h1{ max-width:100%; overflow-wrap:anywhere; }
+  .hero-actions{ flex-wrap:wrap; }
+  .hero-actions .btn{ flex:1 1 100%; width:100%; }
+  .filter-pill, .filter-btn, .nav-link, .nav-mobile-link{ max-width:100%; }
+  .footer-grid{ grid-template-columns:1fr !important; }
+}
+
+@media (max-width: 420px){
+  .nav-logo-text{ font-size:.76rem; letter-spacing:.07em; }
+  .nav-logo-icon{ width:32px; height:32px; }
+  .nav-inner{ padding-left:.75rem; padding-right:.75rem; }
+  .footer-inner{ padding-left:.75rem; padding-right:.75rem; }
+  .filter-wrap, #filter-wrap, #roster-filter{ padding-left:.75rem; padding-right:.75rem; }
+}
+/* ========================================================= */
