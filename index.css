@@ -1,4 +1,4 @@
-﻿:root{
+:root{
   --void:#07050a; --void-2:#0c0710; --void-3:#120a15;
   --blood:#8f1226; --blood-2:#d81e3a; --blood-deep:#4a0812;
   --blood-glow:rgba(216,30,58,.45);
@@ -101,38 +101,7 @@ body{
 
 #depth-field{ position:fixed; inset:0; z-index:2; pointer-events:none; }
 
-#sound-toggle{
-  position:fixed; right:1.5rem; bottom:1.5rem; z-index:500;
-  width:52px; height:52px; display:flex; align-items:center; justify-content:center;
-  background:rgba(13,8,16,.82); border:1px solid rgba(201,168,106,.35); color:var(--gold-2);
-  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); cursor:pointer;
-  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
-  box-shadow:0 0 0 1px rgba(201,168,106,.12) inset, 0 8px 24px rgba(0,0,0,.5);
-  transition:box-shadow .3s ease, border-color .3s ease, transform .3s ease, color .3s ease;
-}
-#sound-toggle:hover{ transform:translateY(-3px); border-color:var(--gold); color:var(--gold-2); box-shadow:0 0 26px var(--gold-glow), 0 10px 28px rgba(0,0,0,.6); }
-#sound-toggle svg{ width:21px; height:21px; overflow:visible; }
-#sound-toggle .wave{ opacity:1; transition:opacity .25s ease; }
-#sound-toggle .muted-x{ opacity:0; stroke:var(--blood-2); transition:opacity .25s ease; }
-#sound-toggle.muted .wave{ opacity:0; }
-#sound-toggle.muted .muted-x{ opacity:1; }
-#sound-toggle.muted{ border-color:rgba(216,30,58,.4); }
-#sound-toggle:not(.muted){ box-shadow:0 0 0 1px rgba(201,168,106,.12) inset, 0 0 22px var(--gold-glow), 0 8px 24px rgba(0,0,0,.5); }
 
-#sound-hint{
-  position:fixed; right:1.5rem; bottom:5.9rem; z-index:500;
-  font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--gold-2); background:rgba(13,8,16,.88); border:1px solid rgba(201,168,106,.3);
-  padding:.55rem .85rem; opacity:0; transform:translateY(8px); pointer-events:none;
-  clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
-  transition:opacity .5s ease, transform .5s ease;
-}
-#sound-hint.show{ opacity:1; transform:translateY(0); animation:hintPulse 2.2s ease-in-out infinite; }
-@keyframes hintPulse{ 0%,100%{ box-shadow:0 0 0 rgba(201,168,106,0); } 50%{ box-shadow:0 0 20px var(--gold-glow); } }
-@media (max-width:640px){
-  #sound-toggle{ width:46px; height:46px; right:1rem; bottom:1rem; }
-  #sound-hint{ right:1rem; bottom:5.2rem; font-size:.58rem; }
-}
 
 #nav{
   position:fixed; top:0; left:0; right:0; z-index:200; height:76px;

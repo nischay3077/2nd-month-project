@@ -139,13 +139,10 @@ body{
 }
 .nav-mobile-link:hover, .nav-mobile-link.active{ color:var(--gold-2); }
 
-
-/* ── Rarity accent tokens ─────────────────────────── */
 .wcard-gold { --card-accent:#f0d38a; --card-glow:rgba(240,211,138,.4); --card-dim:rgba(201,161,90,.12); }
 .wcard-teal { --card-accent:#5eead4; --card-glow:rgba(94,234,212,.35); --card-dim:rgba(45,217,185,.1); }
 .wcard-blue { --card-accent:#7fb8ee; --card-glow:rgba(127,184,238,.35); --card-dim:rgba(58,111,168,.1); }
 
-/* ── Category color tokens ────────────────────────── */
 #cat-ar     { --cat-color:#f0d38a; }
 #cat-sniper { --cat-color:#7fb8ee; }
 #cat-dmr    { --cat-color:#c8a3e8; }
@@ -153,7 +150,6 @@ body{
 #cat-smg    { --cat-color:#e2455f; }
 #cat-shotgun{ --cat-color:#ff8c52; }
 
-/* ── Hero section ─────────────────────────────────── */
 #armory-head {
   text-align:center;
   padding:9rem 2rem 5rem;
@@ -207,10 +203,8 @@ body{
 }
 @keyframes dotPulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(226,69,95,.6)} 50%{opacity:.5;box-shadow:0 0 0 6px rgba(226,69,95,0)} }
 
-/* ── Arsenal main container ───────────────────────── */
 #arsenal { position:relative; z-index:2; padding:2rem 0 8rem; }
 
-/* ── Category section ─────────────────────────────── */
 .cat-section {
   padding:5rem 0 1rem;
   position:relative;
@@ -222,7 +216,6 @@ body{
   opacity:.25;
 }
 
-/* Category header banner */
 .cat-header {
   display:grid;
   grid-template-columns:auto 1fr;
@@ -254,14 +247,12 @@ body{
   display:none;
 }
 
-/* ── Weapon list ──────────────────────────────────── */
 .weapon-list {
   list-style:none; padding:0 3rem; margin:0;
   display:flex; flex-direction:column; gap:1rem;
 }
 .weapon-list > li { display:block; }
 
-/* ── Weapon card — premium horizontal ─────────────── */
 .wep-card {
   display:grid;
   grid-template-columns:clamp(240px,30%,340px) 1fr;
@@ -278,7 +269,7 @@ body{
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
 }
-/* Top-right notch decoration */
+
 .wep-card::before {
   content:''; display:block;
   position:absolute; top:0; right:0;
@@ -287,7 +278,7 @@ body{
   opacity:.3;
   pointer-events:none;
 }
-/* Bottom shimmer line */
+
 .wep-card::after {
   content:''; display:block;
   position:absolute; bottom:0; left:0; right:0; height:1px;
@@ -304,13 +295,12 @@ body{
     0 0 40px -10px var(--card-glow,rgba(201,161,90,.4));
 }
 
-/* ── Image panel ──────────────────────────────────── */
 .wep-fig {
   position:relative; margin:0;
   overflow:hidden;
   background:radial-gradient(ellipse at center bottom, var(--card-dim,rgba(201,161,90,.08)) 0%, rgba(0,0,0,.6) 70%);
 }
-/* Tactical grid overlay */
+
 .wep-grid-bg {
   display:block; position:absolute; inset:0;
   background-image:
@@ -318,7 +308,7 @@ body{
     linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
   background-size:24px 24px;
 }
-/* Bottom glow */
+
 .wep-glow {
   display:block; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
   width:80%; height:60%;
@@ -328,7 +318,6 @@ body{
 }
 .wep-card:hover .wep-glow { opacity:.4; }
 
-/* Scan-line sweep animation */
 .wep-fig::after {
   content:''; display:block; position:absolute; inset:0;
   background:linear-gradient(
@@ -343,7 +332,6 @@ body{
 }
 .wep-card:hover .wep-fig::after { transform:translateY(110%); }
 
-/* Weapon image */
 .wep-img {
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:contain; object-position:center;
@@ -362,7 +350,6 @@ body{
   transform:scale(1.07) translateY(-4px);
 }
 
-/* Category tag on image */
 .wep-fig-cap { position:absolute; bottom:.9rem; left:.9rem; }
 .wep-cat-tag {
   font-family:'JetBrains Mono',monospace; font-size:.52rem;
@@ -376,14 +363,13 @@ body{
   backdrop-filter:blur(4px);
 }
 
-/* ── Intel panel ──────────────────────────────────── */
 .wep-intel {
   padding:1.5rem 2rem 1.5rem 1.8rem;
   display:flex; flex-direction:column; gap:.4rem;
   border-left:1px solid rgba(255,255,255,.06);
   position:relative; overflow:hidden;
 }
-/* Faint accent gradient corner */
+
 .wep-intel::before {
   content:''; display:block;
   position:absolute; top:0; right:0;
@@ -391,7 +377,7 @@ body{
   background:radial-gradient(circle at top right, var(--card-dim,rgba(201,161,90,.1)) 0%, transparent 60%);
   pointer-events:none;
 }
-/* Animated vertical accent line on right */
+
 .wep-intel::after {
   content:''; display:block;
   position:absolute; top:20%; right:0;
@@ -401,7 +387,6 @@ body{
 }
 .wep-card:hover .wep-intel::after { opacity:.4; }
 
-/* Top row: rarity + class badge */
 .wep-intel-top {
   display:flex; align-items:center; justify-content:space-between; gap:.5rem;
   margin-bottom:.1rem;
@@ -423,7 +408,6 @@ body{
   border:1px solid var(--card-accent,rgba(201,161,90,.3));
 }
 
-/* Weapon name — divider line appears via ::after */
 .wep-name {
   font-family:'Cinzel',serif;
   font-size:clamp(1.8rem,3vw,2.6rem);
@@ -441,14 +425,12 @@ body{
   color:rgba(255,255,255,.28); margin:0; margin-bottom:.2rem;
 }
 
-/* Divider between name and stats */
 .wep-stats-divider {
   display:block; height:1px;
   background:linear-gradient(90deg, var(--card-accent,#f0d38a), transparent);
   opacity:.2; margin:.25rem 0 .4rem;
 }
 
-/* Stat bars */
 .wep-stats {
   display:flex; flex-direction:column; gap:.35rem;
   margin:.1rem 0;
@@ -477,7 +459,6 @@ body{
 }
 @keyframes barLoad { from { width:0 !important; } }
 
-/* Card footer tags */
 .wep-foot {
   display:flex; gap:1.25rem; margin-top:auto; padding-top:.8rem;
   border-top:1px solid rgba(255,255,255,.06);
@@ -486,7 +467,6 @@ body{
 }
 .wep-foot b { color:rgba(255,255,255,.6); font-weight:700; }
 
-/* ── Responsive ───────────────────────────────────── */
 @media (max-width:1100px) {
   .wep-card { grid-template-columns:clamp(200px,28%,280px) 1fr; }
 }
@@ -512,7 +492,7 @@ body{
   .a-stat { border-right:none; border-bottom:1px solid rgba(201,168,106,.12); border-radius:6px; border:1px solid rgba(201,168,106,.18); }
   #armory-head { padding:8rem 1.2rem 3.5rem; }
 }
-\nfooter{ position:relative; border-top:1px solid rgba(201,168,106,.16); background:rgba(9,6,12,.6); }
+footer{ position:relative; border-top:1px solid rgba(201,168,106,.16); background:rgba(9,6,12,.6); }
 .footer-accent-line{ position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--gold),var(--blood-2),transparent); opacity:.5; }
 .footer-inner{ max-width:1440px; margin:0 auto; padding:3.5rem 2rem 2rem; }
 .footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:2.5rem; margin-bottom:2.5rem; }
@@ -901,7 +881,6 @@ body.is-scrolling #sound-toggle{
   pointer-events: none; z-index: 7;
   animation: impulseOut .7s cubic-bezier(.2,.65,.3,1) forwards;
 }
-}
 
 .card-3d:not(:hover) .stage-ring {
   animation-play-state: running;
@@ -930,8 +909,6 @@ body.is-scrolling #sound-toggle{
   0%   { width:0;     height:0;     opacity:.8; }
   100% { width:280px; height:280px; margin-left:-140px; margin-top:-140px; opacity:0; }
 }
-
-
 
 body.is-scrolling .card-face { backdrop-filter: none !important; }
 
