@@ -1,53 +1,43 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SKIN VAULT — BGMI Universe</title>
-<meta name="description" content="The Skin Vault — inspect every legendary Battlegrounds Mobile India cosmetic in a cinematic containment archive." />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="BGMI Universe" />
-<meta property="og:title" content="SKIN VAULT — BGMI Universe" />
-<meta property="og:description" content="The Skin Vault — inspect every legendary Battlegrounds Mobile India cosmetic in a cinematic containment archive." />
-<meta property="og:url" content="https://bgmiuniverse.com/skins.html" />
-<meta property="og:image" content="https://bgmiuniverse.com/M416.jpeg" />
+<title>BGMI UNIVERSE — Skin Vault</title>
+<meta name="description" content="BGMI skin vault — every weapon skin by rarity, from mythic to rare." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="skins.css" >
+<link rel="stylesheet" href="skins.css" />
+<link rel="stylesheet" href="semantic_patch.css" />
 </head>
 <body>
 
-<div id="bg-wrap">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto"  disablePictureInPicture disableRemotePlayback>
+<figure id="bg-wrap">
+  <video id="bg-video" autoplay loop playsinline controls preload="auto" disablePictureInPicture disableRemotePlayback>
     <source src="skins.mp4" type="video/mp4">
   </video>
-</div>
-<div id="bg-overlay"></div>
-<div id="bg-grid"></div>
-<div id="bg-vignette"></div>
-<div id="bg-scanline"></div>
-<div id="particles"></div>
-<div id="cursor-glow"></div>
+</figure>
+<span id="bg-overlay"></span>
+<span id="bg-grid"></span>
+<span id="bg-vignette"></span>
+<span id="bg-scanline"></span>
 
-<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
-    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
-    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
-    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
-    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
-  </svg>
-</button>
-<div id="sound-hint">🔊 Tap anywhere for battlefield audio</div>
+<input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true" />
 
-<nav id="nav">
-  <div class="nav-inner">
+<input type="radio" name="vault-filter" id="vf-all"       class="vf-radio" checked />
+<input type="radio" name="vault-filter" id="vf-mythic"    class="vf-radio" />
+<input type="radio" name="vault-filter" id="vf-legendary" class="vf-radio" />
+<input type="radio" name="vault-filter" id="vf-epic"      class="vf-radio" />
+<input type="radio" name="vault-filter" id="vf-rare"      class="vf-radio" />
+
+<header id="nav">
+  <span class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
       <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html" class="nav-link">HOME</a>
       <a href="weapons.html" class="nav-link">WEAPONS</a>
       <a href="maps.html" class="nav-link">MAPS</a>
@@ -56,14 +46,15 @@
       <a href="skins.html" class="nav-link active">SKINS</a>
       <a href="equipment.html" class="nav-link">EQUIPMENT</a>
       <a href="esports.html" class="nav-link">ESPORTS</a>
-    </div>
-    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
-    <button id="nav-toggle" aria-label="Menu">
+    </nav>
+    <a href="weapons.html" class="btn btn-outline nav-cta">ENTER ARSENAL</a>
+    <label for="menu-toggle" class="nav-toggle-label" aria-label="Toggle menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</nav>
-<div id="nav-mobile">
+    </label>
+  </span>
+</header>
+
+<nav id="nav-mobile" aria-label="Mobile navigation">
   <a href="index.html" class="nav-mobile-link">HOME</a>
   <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
   <a href="maps.html" class="nav-mobile-link">MAPS</a>
@@ -72,61 +63,164 @@
   <a href="skins.html" class="nav-mobile-link active">SKINS</a>
   <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
   <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
-</div>
+  <a href="weapons.html" class="btn btn-outline" class="btn btn-outline nav-mobile-full">ENTER ARSENAL</a>
+</nav>
 
 <section id="vault-head">
-  <div class="head-tag"><span class="head-dot"></span> MOLTEN VAULT — FORGED IN THE BLOOD MOON</div>
-  <h1 class="vault-h1">THE <span class="accent">MOLTEN VAULT</span></h1>
-  <p class="vault-desc">Every cosmetic is cast and sealed in the forge itself. Filter by rarity tier and crack a tile open to inspect it in full.</p>
-  <div class="vault-stats">
-    <div class="vstat"><div class="vstat-num" id="statTotal">0</div><div class="vstat-label">Catalogued</div></div>
-    <div class="vstat"><div class="vstat-num" id="statMythic">0</div><div class="vstat-label">Mythic Tier</div></div>
-    <div class="vstat"><div class="vstat-num" id="statLegendary">0</div><div class="vstat-label">Legendary Tier</div></div>
-  </div>
+  <aside class="vault-badge"><span class="badge-dot"></span> FORGE ARCHIVES — CLASSIFIED COSMETIC REGISTRY</aside>
+  <h1 class="vault-h1">THE <em>SKIN VAULT</em></h1>
+  <p class="vault-desc">Every BGMI weapon skin catalogued by rarity tier — from ultra-rare Mythic collections to battlefield-ready Rare finishes. Filter by tier to find your next grind target.</p>
+  <ul class="vault-stats">
+    <li class="vstat"><span class="vstat-num">8</span><span class="vstat-label">Skins</span></li>
+    <li class="vstat"><span class="vstat-num">4</span><span class="vstat-label">Rarity Tiers</span></li>
+    <li class="vstat"><span class="vstat-num">3</span><span class="vstat-label">Weapon Classes</span></li>
+  </ul>
 </section>
 
-<div id="forge-feature"></div>
+<nav id="filter-wrap" aria-label="Skin rarity filter">
+  <label for="vf-all"       class="filter-pill">⬡ ALL SKINS</label>
+  <label for="vf-mythic"    class="filter-pill">⬡ MYTHIC</label>
+  <label for="vf-legendary" class="filter-pill">⬡ LEGENDARY</label>
+  <label for="vf-epic"      class="filter-pill">⬡ EPIC</label>
+  <label for="vf-rare"      class="filter-pill">⬡ RARE</label>
+</nav>
 
-<div id="filter-wrap">
-  <button class="filter-tab-btn filter-pill active" data-filter="all">All Skins</button>
-  <button class="filter-tab-btn filter-pill" data-filter="mythic">Mythic</button>
-  <button class="filter-tab-btn filter-pill" data-filter="legendary">Legendary</button>
-  <button class="filter-tab-btn filter-pill" data-filter="epic">Epic</button>
-  <button class="filter-tab-btn filter-pill" data-filter="rare">Rare</button>
-  <button class="filter-tab-btn filter-pill" data-filter="uncommon">Uncommon</button>
-</div>
+<section id="vault-wrap">
+  <ul class="vault-grid">
 
-<div id="vault-wrap">
-  <div class="vault-grid" id="vault-grid"></div>
-</div>
+<li>
+      <article class="vault-tile" data-rarity="mythic" class="tile-mythic">
+        <figure class="vault-img-wrap">
+          <img src="M416.jpeg" alt="M416 — Titan Striker Mythic" class="vault-img" loading="eager">
+          <span class="vault-badge">MYTHIC</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Mythic Tier</span>
+          <strong class="vault-tile-name">Titan Striker</strong>
+          <span class="vault-tile-type">M416 · Assault Rifle</span>
+        </figcaption>
+      </article>
+    </li>
 
-<div class="modal" id="skin-modal">
-  <div class="modal-content">
-    <button class="close-modal" id="close-modal">&times;</button>
-    <div class="modal-stage">
-      <div class="modal-stage-grid"></div>
-      <img src="" alt="Skin" class="modal-img" id="modal-img" onerror="this.style.display='none'">
-    </div>
-    <div class="modal-info">
-      <div class="modal-badge" id="modal-badge"></div>
-      <div class="modal-weapon" id="modal-weapon"></div>
-      <h2 class="modal-name" id="modal-name"></h2>
-      <p class="modal-desc" id="modal-desc"></p>
-      <button class="btn btn-outline">Unlock In-Game</button>
-    </div>
-  </div>
-</div>
+<li>
+      <article class="vault-tile" data-rarity="mythic" class="tile-mythic">
+        <figure class="vault-img-wrap">
+          <img src="M762.jpeg" alt="M762 — Magma Core Mythic" class="vault-img" loading="lazy">
+          <span class="vault-badge">MYTHIC</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Mythic Tier</span>
+          <strong class="vault-tile-name">Magma Core</strong>
+          <span class="vault-tile-type">M762 · Assault Rifle</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="legendary" class="tile-legendary">
+        <figure class="vault-img-wrap">
+          <img src="Awm.jpeg" alt="AWM — Inferno Series Legendary" class="vault-img" loading="lazy">
+          <span class="vault-badge">LEGENDARY</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Legendary Tier</span>
+          <strong class="vault-tile-name">Inferno Series</strong>
+          <span class="vault-tile-type">AWM · Sniper Rifle</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="legendary" class="tile-legendary">
+        <figure class="vault-img-wrap">
+          <img src="Akm.jpeg" alt="AKM — Blood Moon Legendary" class="vault-img" loading="lazy">
+          <span class="vault-badge">LEGENDARY</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Legendary Tier</span>
+          <strong class="vault-tile-name">Blood Moon</strong>
+          <span class="vault-tile-type">AKM · Assault Rifle</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="epic" class="tile-epic">
+        <figure class="vault-img-wrap">
+          <img src="Groza.jpeg" alt="Groza — Violet Storm Epic" class="vault-img" loading="lazy">
+          <span class="vault-badge">EPIC</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Epic Tier</span>
+          <strong class="vault-tile-name">Violet Storm</strong>
+          <span class="vault-tile-type">Groza · Assault Rifle</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="epic" class="tile-epic">
+        <figure class="vault-img-wrap">
+          <img src="Vector.jpeg" alt="Vector — Neon Pulse Epic" class="vault-img" loading="lazy">
+          <span class="vault-badge">EPIC</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Epic Tier</span>
+          <strong class="vault-tile-name">Neon Pulse</strong>
+          <span class="vault-tile-type">Vector · SMG</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="rare" class="tile-rare">
+        <figure class="vault-img-wrap">
+          <img src="Kar98k.jpeg" alt="Kar98k — Arctic Frost Rare" class="vault-img" loading="lazy">
+          <span class="vault-badge">RARE</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Rare Tier</span>
+          <strong class="vault-tile-name">Arctic Frost</strong>
+          <span class="vault-tile-type">Kar98k · Sniper Rifle</span>
+        </figcaption>
+      </article>
+    </li>
+
+<li>
+      <article class="vault-tile" data-rarity="rare" class="tile-rare">
+        <figure class="vault-img-wrap">
+          <img src="Ump45.jpeg" alt="UMP45 — Steel Cage Rare" class="vault-img" loading="lazy">
+          <span class="vault-badge">RARE</span>
+          <span class="vault-strip"></span>
+        </figure>
+        <figcaption class="vault-tile-info">
+          <span class="vault-tile-rarity">Rare Tier</span>
+          <strong class="vault-tile-name">Steel Cage</strong>
+          <span class="vault-tile-type">UMP45 · SMG</span>
+        </figcaption>
+      </article>
+    </li>
+
+  </ul>
+</section>
 
 <footer>
-  <div class="footer-accent-line"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
-        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">NAVIGATE</div>
+  <span class="footer-accent-line"></span>
+  <section class="footer-inner">
+    <section class="footer-grid">
+      <section>
+        <strong class="footer-brand-name">BGMI <span>UNIVERSE</span></strong>
+        <p class="footer-brand-desc">The ultimate fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </section>
+      <nav aria-label="Footer navigation">
+        <h3 class="footer-col-title">NAVIGATE</h3>
         <a href="index.html" class="footer-link">Home</a>
         <a href="weapons.html" class="footer-link">Weapons</a>
         <a href="maps.html" class="footer-link">Maps</a>
@@ -135,258 +229,22 @@
         <a href="skins.html" class="footer-link">Skins</a>
         <a href="equipment.html" class="footer-link">Equipment</a>
         <a href="esports.html" class="footer-link">Esports</a>
-      </div>
-      <div>
-        <div class="footer-col-title">LABS</div>
-        <a href="weapons.html" class="footer-link">Blood Armory</a>
-        <a href="maps.html" class="footer-link">War Table</a>
-        <a href="vehicles.html" class="footer-link">Motor Pool</a>
+      </nav>
+      <nav aria-label="Footer labs navigation">
+        <h3 class="footer-col-title">LABS</h3>
+        <a href="weapons.html" class="footer-link">3D Weapon Showroom</a>
+        <a href="equipment.html" class="footer-link">Scope &amp; Attachment Lab</a>
         <a href="skins.html" class="footer-link">Skin Vault</a>
+        <a href="characters.html" class="footer-link">Character Dossiers</a>
         <a href="esports.html" class="footer-link">Esports Intel</a>
-      </div>
-    </div>
-     <div class="footer-bottom">
+      </nav>
+    </section>
+    <p class="footer-bottom">
       <span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span>
       <span class="footer-note">Made by Nischay Samant</span>
-    </div>
-  </div>
+    </p>
+  </section>
 </footer>
 
-<script>
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const canHover = window.matchMedia('(hover: hover)').matches;
-
-const nav = document.getElementById('nav');
-let scrollRAF = null, scrollEndTimer = null;
-function handleScroll() {
-  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-}
-window.addEventListener('scroll', () => {
-  document.body.classList.add('is-scrolling');
-  clearTimeout(scrollEndTimer);
-  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
-  if (scrollRAF) return;
-  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
-}, { passive:true });
-const navToggle = document.getElementById('nav-toggle');
-const navMobile = document.getElementById('nav-mobile');
-navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
-
-const glow = document.getElementById('cursor-glow');
-let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my;
-if (!reducedMotion && canHover && glow) {
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; glow.style.opacity = '1'; }, { passive:true });
-  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-  function raf(){ gx += (mx-gx)*0.12; gy += (my-gy)*0.12; glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`; requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-}
-
-const bgVid = document.getElementById('bg-video');
-bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
-});
-const soundToggle = document.getElementById('sound-toggle');
-const soundHint = document.getElementById('sound-hint');
-let audioUnlocked = false;
-
-function fadeVolume(video, to, duration = 700) {
-  const from = video.volume;
-  const start = performance.now();
-  function step(now) {
-    const p = Math.min((now - start) / duration, 1);
-    video.volume = from + (to - from) * p;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-function enableSound() {
-  if (!bgVid) return;
-  bgVid.muted = false;
-  bgVid.volume = 0;
-  bgVid.play().catch(() => {});
-  fadeVolume(bgVid, 0.55);
-  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
-  if (soundHint) soundHint.classList.remove('show');
-}
-function disableSound() {
-  if (!bgVid) return;
-  fadeVolume(bgVid, 0, 350);
-  setTimeout(() => { bgVid.muted = true; }, 370);
-  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
-}
-function firstGestureUnlock() {
-  if (audioUnlocked) return;
-  audioUnlocked = true;
-  enableSound();
-  document.removeEventListener('click', firstGestureUnlock);
-  document.removeEventListener('touchstart', firstGestureUnlock);
-  document.removeEventListener('keydown', firstGestureUnlock);
-}
-if (bgVid && soundToggle) {
-  document.addEventListener('click', firstGestureUnlock);
-  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
-  document.addEventListener('keydown', firstGestureUnlock);
-
-  soundToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    audioUnlocked = true;
-    if (bgVid.muted) enableSound(); else disableSound();
-  });
-
-  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
-  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
-}
-
-if (!reducedMotion) {
-  const pWrap = document.getElementById('particles');
-  const count = window.innerWidth < 768 ? 12 : 24;
-  for (let i = 0; i < count; i++) {
-    const m = document.createElement('div');
-    m.className = 'mote';
-    const left = Math.random()*100;
-    const dur = 9 + Math.random()*10;
-    const delay = Math.random()*10;
-    const drift = (Math.random()*60-30) + 'px';
-    m.style.left = left + '%';
-    m.style.animationDuration = dur + 's';
-    m.style.animationDelay = '-' + delay + 's';
-    m.style.setProperty('--drift', drift);
-    pWrap.appendChild(m);
-  }
-}
-
-const skins = [
-  { w:'M416', s:'Glacier Crystal', r:'legendary', f:'M416.jpeg', d:'Forged in the eternal frost of Vikendi. Leaves an icy trail on elimination.' },
-  { w:'AKM', s:'Dragonfire', r:'mythic', f:'Akm.jpeg', d:'Breathes devastating fire upon enemies. The soul of an ancient dragon resides within.' },
-  { w:'AWM', s:'Void Walker', r:'mythic', f:'Awm.jpeg', d:'Harness the power of dark matter. One shot tears the fabric of reality.' },
-  { w:'Groza', s:'Wildfire', r:'legendary', f:'Groza.jpeg', d:'Uncontrollable blaze trapped in steel. Melts armor and morale.' },
-  { w:'Vector', s:'Neon Striker', r:'epic', f:'Vector.jpeg', d:'Cyberpunk inspired design for high-speed close-quarters combat.' },
-  { w:'AUG', s:'Forest Sentinel', r:'epic', f:'Aug.jpeg', d:'Camouflaged for deep jungle operations in Sanhok.' },
-  { w:'DP 28', s:'Warlord', r:'rare', f:'Dp 28.jpeg', d:'A heavy machine gun fit for a conqueror.' },
-  { w:'Kar98k', s:'Desert Mirage', r:'legendary', f:'Kar98k.jpeg', d:'Blends seamlessly into the dunes of Miramar.' },
-  { w:'M24', s:'Thunder Strike', r:'mythic', f:'M24.jpeg', d:'Calls down lightning with every pull of the trigger.' },
-  { w:'M762', s:'Blood Oath', r:'epic', f:'M762.jpeg', d:'Forged in battle, sworn to victory.' },
-  { w:'Mini 14', s:'Ocean Tide', r:'rare', f:'Mini 14.jpeg', d:'Smooth and relentless as the ocean waves.' },
-  { w:'Mk14', s:'Annihilator', r:'legendary', f:'Mk14.jpeg', d:'Total destruction at any range.' },
-  { w:'P90', s:'Toxic Waste', r:'uncommon', f:'P90.jpeg', d:'Hazardous materials handling required.' },
-  { w:'S12K', s:'Street Riot', r:'rare', f:'S12k.jpeg', d:'Crowd control has never been this messy.' },
-  { w:'S686', s:'Silver Ranger', r:'uncommon', f:'s686.jpeg', d:'Classic hunting style with a modern finish.' },
-  { w:'SCAR-L', s:'Golden Eagle', r:'legendary', f:'Scar l.jpeg', d:'Adorned in pure gold for the distinguished survivor.' },
-  { w:'Thompson', s:'Mafia Boss', r:'epic', f:'Thomson.jpeg', d:'Old school cool for making an offer they cant refuse.' },
-  { w:'UMP45', s:'Digital Camo', r:'rare', f:'Ump45.jpeg', d:'Urban warfare ready.' },
-  { w:'Uzi', s:'Hornet', r:'epic', f:'Uzi.jpeg', d:'Stings fast, stings hard.' }
-];
-
-document.getElementById('statTotal').textContent = skins.length;
-document.getElementById('statMythic').textContent = skins.filter(s => s.r === 'mythic').length;
-document.getElementById('statLegendary').textContent = skins.filter(s => s.r === 'legendary').length;
-
-const featured = skins.find(s => s.r === 'mythic') || skins[0];
-document.getElementById('forge-feature').innerHTML = `
-  <div class="forge-hero">
-    <div class="forge-hero-crack"></div>
-    <div class="forge-hero-glow"></div>
-    <div class="forge-hero-stage">
-      <img src="${encodeURIComponent(featured.f)}" alt="${featured.s}" onerror="this.style.display='none'">
-    </div>
-    <div class="forge-hero-body">
-      <div class="forge-hero-tag">FRESH FROM THE FORGE</div>
-      <div class="forge-hero-weapon">${featured.w}</div>
-      <h2 class="forge-hero-name">${featured.s}</h2>
-      <p class="forge-hero-desc">${featured.d}</p>
-      <button class="btn btn-outline forge-hero-cta" id="forge-inspect-btn">INSPECT SKIN</button>
-    </div>
-  </div>`;
-document.getElementById('forge-inspect-btn').addEventListener('click', () => openModal(featured));
-
-const grid = document.getElementById('vault-grid');
-
-function renderSkins(filter = 'all') {
-  grid.innerHTML = '';
-  const list = skins.filter(s => filter === 'all' || s.r === filter);
-  if (!list.length) {
-    grid.innerHTML = '<div class="empty-note">// NO CAPSULES MATCH THIS FILTER //</div>';
-    return;
-  }
-  list.forEach((skin, i) => {
-    const card = document.createElement('div');
-    card.className = 'capsule';
-    card.dataset.r = skin.r;
-    card.style.animationDelay = (i * 0.05) + 's';
-    card.innerHTML = `
-      <div class="capsule-stage">
-        <div class="capsule-ring"></div>
-        <div class="capsule-glow"></div>
-        <img class="capsule-img" src="${encodeURIComponent(skin.f)}" alt="${skin.s}" onerror="this.style.display='none'">
-        <div class="capsule-sheen"></div>
-        <span class="capsule-badge">${skin.r}</span>
-        <span class="capsule-index">${String(i+1).padStart(2,'0')}</span>
-      </div>
-      <div class="capsule-body">
-        <div class="capsule-weapon">${skin.w}</div>
-        <h3 class="capsule-name">${skin.s}</h3>
-        <div class="capsule-foot">
-          <span class="capsule-rarity-label">${skin.r}</span>
-          <span class="capsule-inspect">INSPECT →</span>
-        </div>
-      </div>
-    `;
-    card.addEventListener('click', () => openModal(skin));
-
-    if (!reducedMotion && canHover) {
-      let tiltRAF = null, lastEvt = null;
-      card.addEventListener('mousemove', (e) => {
-        lastEvt = e;
-        if (tiltRAF) return;
-        tiltRAF = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const px = (lastEvt.clientX - rect.left) / rect.width - 0.5;
-          const py = (lastEvt.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = `rotateY(${px*8}deg) rotateX(${-py*8}deg) translateY(-4px)`;
-          tiltRAF = null;
-        });
-      }, { passive:true });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    }
-
-    grid.appendChild(card);
-  });
-}
-
-renderSkins();
-
-document.querySelectorAll('.filter-tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderSkins(btn.dataset.filter);
-  });
-});
-
-const modal = document.getElementById('skin-modal');
-const closeBtn = document.getElementById('close-modal');
-const modalContent = document.querySelector('.modal-content');
-
-function openModal(skin) {
-  document.getElementById('modal-img').src = encodeURIComponent(skin.f);
-  document.getElementById('modal-img').style.display = '';
-  document.getElementById('modal-badge').textContent = skin.r.toUpperCase();
-  document.getElementById('modal-weapon').textContent = skin.w;
-  document.getElementById('modal-name').textContent = skin.s;
-  document.getElementById('modal-desc').textContent = skin.d;
-
-  const rc = { mythic:'var(--blood-2)', legendary:'var(--gold)', epic:'var(--violet-2)', rare:'var(--steel-2)', uncommon:'var(--moss-2)' }[skin.r] || 'var(--gold)';
-  modalContent.style.setProperty('--rc', rc);
-  document.getElementById('modal-badge').style.background = `linear-gradient(135deg, ${rc}, #fff)`;
-  document.getElementById('modal-badge').style.color = '#08060a';
-
-  modal.classList.add('active');
-}
-
-closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.remove('active'); });
-</script>
 </body>
 </html>

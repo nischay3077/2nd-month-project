@@ -1,3 +1,4 @@
+﻿.menu-checkbox{display:none;}
 :root{
   --void:#07050a; --void-2:#0c0710; --void-3:#120a15;
   --blood:#8f1226; --blood-2:#d81e3a; --blood-deep:#4a0812; --blood-glow:rgba(216,30,58,.4);
@@ -7,7 +8,6 @@
 }
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 
-/* --- Responsive safety additions (external CSS pass) --- */
 img, video { max-width: 100%; height: auto; }
 html{ scroll-behavior:smooth; }
 body{ font-family:'Barlow Condensed',sans-serif; background:var(--void); color:var(--bone); overflow-x:hidden; }
@@ -51,12 +51,6 @@ img{ max-width:100%; display:block; }
   animation:scanSweep 8s ease-in-out infinite; will-change:transform;
 }
 @keyframes scanSweep{ 0%{ transform:translateY(-5vh); opacity:0; } 5%{ opacity:.85; } 95%{ opacity:.3; } 100%{ transform:translateY(105vh); opacity:0; } }
-
-#cursor-glow{
-  position:fixed; top:0; left:0; width:320px; height:320px; z-index:5; pointer-events:none; border-radius:50%;
-  background:radial-gradient(circle, rgba(216,30,58,.09) 0%, rgba(201,168,106,.05) 42%, transparent 72%);
-  opacity:0; transition:opacity .4s ease; will-change:transform;
-}
 
 #sound-toggle{
   position:fixed; right:1.5rem; bottom:1.5rem; z-index:500;
@@ -112,12 +106,13 @@ img{ max-width:100%; display:block; }
 }
 .nav-link:hover{ background:rgba(201,168,106,.06); }
 .nav-cta{ margin-left:1.4rem; }
-#nav-toggle{ display:none; background:none; border:none; cursor:pointer; color:var(--gold-2); padding:.5rem; margin-left:auto; }
+
 #nav-mobile{
   display:none; position:fixed; top:76px; left:0; right:0; z-index:199; background:rgba(5,3,7,.98);
   border-bottom:1px solid rgba(201,168,106,.2); padding:1.5rem 2rem;
 }
-#nav-mobile.open{ display:block; }
+.menu-checkbox:checked ~ #nav-mobile{ display:block; }
+
 .nav-mobile-link{
   display:block; font-family:'Orbitron',sans-serif; font-size:.78rem; font-weight:700; color:var(--ash);
   text-decoration:none; letter-spacing:.1em; padding:.75rem 0; border-bottom:1px solid rgba(255,255,255,.05);
@@ -286,8 +281,8 @@ footer{ position:relative; border-top:1px solid rgba(201,168,106,.16); backgroun
 
 @media (max-width:768px){
   .footer-grid{ grid-template-columns:1fr; }
-  .nav-links,.nav-cta{ display:none; } #nav-toggle{ display:flex; }
-  #cursor-glow{ display:none; }
+  .nav-links,.nav-cta{ display:none; } 
+  
 }
 @media (max-width:768px){
   .nav-inner{ padding:0 1.25rem; }
@@ -305,8 +300,6 @@ footer{ position:relative; border-top:1px solid rgba(201,168,106,.16); backgroun
 }
 body.is-scrolling *{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
 
-
-/* ================= RESPONSIVE ENHANCEMENT ================= */
 @media (max-width: 768px){
   html, body{ width:100%; max-width:100%; overflow-x:hidden; }
   *, *::before, *::after{ max-width:100%; }
@@ -316,6 +309,8 @@ body.is-scrolling *{ backdrop-filter:none !important; -webkit-backdrop-filter:no
   .nav-inner, .footer-inner, .section-wrap, #terminal, #compare, #arsenal, #roster, #briefing, #lab-wrap, #garage-wrap, #vault-wrap, #forge-feature, #featured, #maps-showcase{ width:100%; max-width:100%; }
   .nav-inner{ padding-left:1rem; padding-right:1rem; }
   #nav-mobile{ padding-left:1rem; padding-right:1rem; }
+.menu-checkbox:checked ~ #nav-mobile{ display:block; }
+
   .footer-inner{ padding-left:1rem; padding-right:1rem; }
   .btn{ min-width:0; white-space:normal; text-align:center; }
   .hero-actions, .filter-wrap, #filter-wrap, #roster-filter{ max-width:100%; }
@@ -337,4 +332,27 @@ body.is-scrolling *{ backdrop-filter:none !important; -webkit-backdrop-filter:no
   .footer-inner{ padding-left:.75rem; padding-right:.75rem; }
   .filter-wrap, #filter-wrap, #roster-filter{ padding-left:.75rem; padding-right:.75rem; }
 }
-/* ========================================================= */
+
+.garage-card{ position:relative; }
+.vehicle-console{
+  position:absolute; inset:0; z-index:5;
+  background:rgba(10,12,16,.92);
+  display:flex; flex-direction:column; justify-content:center; gap:1rem; padding:1.25rem;
+  opacity:0; transition:opacity .35s ease;
+  pointer-events:none;
+}
+.garage-card:hover .vehicle-console{ opacity:1; pointer-events:auto; }
+.vconsole-desc{ font-family:'Barlow Condensed',sans-serif; font-size:.95rem; color:var(--ash); line-height:1.5; }
+.vconsole-dials{ display:flex; flex-direction:column; gap:.5rem; }
+.vconsole-dial span{ font-family:'JetBrains Mono',monospace; font-size:.6rem; color:var(--ash-dim); letter-spacing:.06em; display:block; margin-bottom:.2rem; }
+.vconsole-dial-bar{ height:3px; background:rgba(255,255,255,.08); }
+.vconsole-dial-bar div{ height:100%; background:var(--ac,var(--gold)); box-shadow:0 0 4px var(--ac,var(--gold)); }
+.vac-gold   { --v-accent:#f0d38a; }
+.vac-red    { --v-accent:#e2455f; }
+.vac-purple { --v-accent:#c8a3e8; }
+.vcol-gold   { --v-col:#f0d38a; }
+.vcol-red    { --v-col:#e2455f; }
+.vcol-purple { --v-col:#c8a3e8; }
+.v-bar-gold   { height:100%; display:block; background:#f0d38a; box-shadow:0 0 6px rgba(201,168,106,.5); }
+.v-bar-red    { height:100%; display:block; background:#e2455f; box-shadow:0 0 6px rgba(226,69,95,.5);   }
+.v-bar-purple { height:100%; display:block; background:#c8a3e8; box-shadow:0 0 6px rgba(200,163,232,.5); }

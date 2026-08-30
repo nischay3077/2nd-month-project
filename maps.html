@@ -3,52 +3,253 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>THE WAR TABLE â€” BGMI Universe</title>
-<meta name="description" content="The Storm War Table â€” every Battlegrounds Mobile India battleground, briefed under kaiju-storm skies with live atomic-signal detection." />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="BGMI Universe" />
-<meta property="og:title" content="THE WAR TABLE â€” BGMI Universe" />
-<meta property="og:description" content="The Storm War Table â€” every Battlegrounds Mobile India battleground, briefed under kaiju-storm skies with live atomic-signal detection." />
-<meta property="og:url" content="https://bgmiuniverse.com/maps.html" />
-<meta property="og:image" content="https://bgmiuniverse.com/Erangel.jpeg" />
+<title>BGMI UNIVERSE — The War Table</title>
+<meta name="description" content="Tactical battlefield intelligence on every BGMI map — terrain, loot zones, and deployment data." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="maps.css" >
+<link rel="stylesheet" href="maps.css" />
+<link rel="stylesheet" href="semantic_patch.css" />
 </head>
 <body>
 
-<div id="bg-wrap">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" disablePictureInPicture disableRemotePlayback>
+<figure id="bg-wrap">
+  <video id="bg-video" autoplay loop playsinline controls preload="auto" disablePictureInPicture disableRemotePlayback>
     <source src="3.mp4" type="video/mp4">
   </video>
-</div>
-<div id="bg-overlay"></div>
-<div id="rain"></div>
-<div id="lightning"></div>
-<div id="bg-grid"></div>
-<div id="bg-vignette"></div>
-<div id="bg-scanline"></div>
-<div id="cursor-glow"></div>
+</figure>
+<span id="bg-overlay"></span>
+<span id="bg-grid"></span>
+<span id="bg-vignette"></span>
+<span id="bg-scanline"></span>
 
-<button id="sound-toggle" class="muted" aria-label="Toggle battlefield audio" aria-pressed="false">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="4,9 8,9 13,4 13,20 8,15 4,15" fill="currentColor" stroke="none"/>
-    <path class="wave" d="M16 8.4c1.6 1.3 1.6 6 0 7.2"/>
-    <path class="wave" d="M18.6 5.8c2.9 2.5 2.9 10 0 12.4"/>
-    <line class="muted-x" x1="15.4" y1="8" x2="21" y2="16"/>
-    <line class="muted-x" x1="21" y1="8" x2="15.4" y2="16"/>
-  </svg>
-</button>
-<div id="sound-hint">ðŸ”Š Tap anywhere for battlefield audio</div>
+<input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true" />
 
-<nav id="nav">
-  <div class="nav-inner">
+<input type="checkbox" id="mc-erangel" class="map-check" />
+<input type="checkbox" id="mc-miramar" class="map-check" />
+<input type="checkbox" id="mc-vikendi" class="map-check" />
+<input type="checkbox" id="mc-sanhok"  class="map-check" />
+<input type="checkbox" id="mc-livik"   class="map-check" />
+<input type="checkbox" id="mc-karakin" class="map-check" />
+<input type="checkbox" id="mc-rondo"   class="map-check" />
+
+<section class="map-overlay" id="ov-erangel" aria-label="Erangel Intel">
+  <label for="mc-erangel" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="Erangel.jpeg" alt="Erangel full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-01 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-01 // ERANGEL // 8×8 KM</p>
+      <h2 class="ov-map-name">ERANGEL</h2>
+      <p class="ov-map-desc">Classic Russian island battlefield. High-density loot at Military Base, Pochinki, and Georgopol. Long sightlines reward precision shooters while urban clusters fuel close-quarter combat. The most versatile and iconic map in BGMI.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">8 × 8 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Grasslands &amp; Forest</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Military Base</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Versatile</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Beginner Friendly</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Standard</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">M416</li><li class="ov-weapon-tag">AWM</li><li class="ov-weapon-tag">Kar98k</li><li class="ov-weapon-tag">Mini 14</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-miramar" aria-label="Miramar Intel">
+  <label for="mc-miramar" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="Miramar.jpeg" alt="Miramar full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-02 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-02 // MIRAMAR // 8×8 KM</p>
+      <h2 class="ov-map-name">MIRAMAR</h2>
+      <p class="ov-map-desc">Vast desert terrain with sparse cover. Vehicle combat dominates — the Mirado is Miramar-exclusive. Hacienda del Patron delivers the richest loot. Long-range sniping rules every engagement across open canyons.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">8 × 8 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Desert &amp; Canyons</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Hacienda del Patron</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Long Range Sniper</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Expert</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Standard</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">AWM</li><li class="ov-weapon-tag">Kar98k</li><li class="ov-weapon-tag">Mini 14</li><li class="ov-weapon-tag">M24</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-vikendi" aria-label="Vikendi Intel">
+  <label for="mc-vikendi" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="Vikendi.jpeg" alt="Vikendi full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-03 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-03 // VIKENDI // 6×6 KM</p>
+      <h2 class="ov-map-name">VIKENDI</h2>
+      <p class="ov-map-desc">Snow-covered island with mixed terrain. Footprints in snow make stealth critical. Dino Park and Castle are high-risk, high-reward hotdrops. Mid-range engagements dominate open frozen zones.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">6 × 6 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Snow &amp; Forest</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Dino Park</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Balanced — Mid Range</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Intermediate</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Standard</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">M416</li><li class="ov-weapon-tag">AKM</li><li class="ov-weapon-tag">Groza</li><li class="ov-weapon-tag">Kar98k</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-sanhok" aria-label="Sanhok Intel">
+  <label for="mc-sanhok" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="sanhok.jpeg" alt="Sanhok full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-04 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-04 // SANHOK // 4×4 KM</p>
+      <h2 class="ov-map-name">SANHOK</h2>
+      <p class="ov-map-desc">Dense jungle with relentless action. Small map size means fast circles and constant combat. Boot Camp and Ruins spawn legendary loot. Close-quarter specialists absolutely thrive in Sanhok's tight corridors.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">4 × 4 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Jungle &amp; River</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Boot Camp</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Aggressive — CQC</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">All Levels</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Fast</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">Groza</li><li class="ov-weapon-tag">UMP45</li><li class="ov-weapon-tag">Vector</li><li class="ov-weapon-tag">S12K</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-livik" aria-label="Livik Intel">
+  <label for="mc-livik" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="livik.jpeg" alt="Livik full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-05 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-05 // LIVIK // 2×2 KM</p>
+      <h2 class="ov-map-name">LIVIK</h2>
+      <p class="ov-map-desc">Tiny Nordic island built for ultra-fast 15-minute matches. Power Plant and Midstein are primary hotdrops. Every decision is high-stakes from the very first second — adapt fast or be eliminated early.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">2 × 2 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Nordic &amp; Waterfalls</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Power Plant</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Speed — All Styles</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Intermediate</dd>
+        <dt class="ov-stat-label">Match Length</dt><dd class="ov-stat-val">~15 Minutes</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">Adapt Fast</li><li class="ov-weapon-tag">Any AR</li><li class="ov-weapon-tag">SMG</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-karakin" aria-label="Karakin Intel">
+  <label for="mc-karakin" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="karakin.jpeg" alt="Karakin full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-06 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">EXTREME HAZARD</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-06 // KARAKIN // 2×2 KM</p>
+      <h2 class="ov-map-name">KARAKIN</h2>
+      <p class="ov-map-desc">Destructible terrain sets Karakin completely apart. Sticky Bombs blast holes through walls, creating new firing angles every match. Hadiqa Nemo and Al Hayik are primary hot zones for instant gunfights on drop.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">2 × 2 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Desert — Destructible</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">Hadiqa Nemo</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Chaotic — Explosive</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Expert</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Very Fast</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">Groza</li><li class="ov-weapon-tag">DBS</li><li class="ov-weapon-tag">Grenades</li><li class="ov-weapon-tag">Sticky Bomb</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section class="map-overlay" id="ov-rondo" aria-label="Rondo Intel">
+  <label for="mc-rondo" class="overlay-close" aria-label="Close">?</label>
+  <section class="ov-inner">
+    <figure class="ov-img-panel">
+      <img src="rondo.jpeg" alt="Rondo full map" class="ov-full-img">
+      <aside class="ov-img-labels">
+        <span class="ov-img-zone">ZONE-07 // SATELLITE FEED ACTIVE</span>
+        <span class="ov-img-status">OPERATIONAL</span>
+      </aside>
+    </figure>
+    <section class="ov-intel-panel">
+      <p class="ov-zone-code">BGMI // ZONE-07 // RONDO // 8×8 KM</p>
+      <h2 class="ov-map-name">RONDO</h2>
+      <p class="ov-map-desc">BGMI's most urban map — dense city blocks, multi-story buildings, elevated highways. Verticality creates complex three-dimensional gunfights. Snipers and CQC specialists can both dominate depending on zone.</p>
+      <section class="ov-stats-grid">
+        <dt class="ov-stat-label">Map Size</dt><dd class="ov-stat-val">8 × 8 km</dd>
+        <dt class="ov-stat-label">Terrain</dt><dd class="ov-stat-val">Urban &amp; Industrial</dd>
+        <dt class="ov-stat-label">Top Hotdrop</dt><dd class="ov-stat-val">City Centre</dd>
+        <dt class="ov-stat-label">Style</dt><dd class="ov-stat-val">Mixed — Urban CQC</dd>
+        <dt class="ov-stat-label">Difficulty</dt><dd class="ov-stat-val">Intermediate</dd>
+        <dt class="ov-stat-label">Circle Speed</dt><dd class="ov-stat-val">Standard</dd>
+      </section>
+      <section class="ov-weapons">
+        <span class="ov-weapons-label">// RECOMMENDED WEAPONS</span>
+        <ul class="ov-weapon-tags"><li class="ov-weapon-tag">M416</li><li class="ov-weapon-tag">Vector</li><li class="ov-weapon-tag">UMP45</li><li class="ov-weapon-tag">AWM</li></ul>
+      </section>
+    </section>
+  </section>
+</section>
+
+<header id="nav">
+  <span class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <span class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0d38a" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
       <span class="nav-logo-text">BGMI <span>UNIVERSE</span></span>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html" class="nav-link">HOME</a>
       <a href="weapons.html" class="nav-link">WEAPONS</a>
       <a href="maps.html" class="nav-link active">MAPS</a>
@@ -57,14 +258,15 @@
       <a href="skins.html" class="nav-link">SKINS</a>
       <a href="equipment.html" class="nav-link">EQUIPMENT</a>
       <a href="esports.html" class="nav-link">ESPORTS</a>
-    </div>
-    <a href="weapons.html" class="btn btn-outline nav-cta" style="padding:.6rem 1.4rem;font-size:.68rem;">ENTER ARSENAL</a>
-    <button id="nav-toggle" aria-label="Menu">
+    </nav>
+    <a href="weapons.html" class="btn btn-outline nav-cta" >ENTER ARSENAL</a>
+    <label for="menu-toggle" class="nav-toggle-label" aria-label="Toggle menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</nav>
-<div id="nav-mobile">
+    </label>
+  </span>
+</header>
+
+<nav id="nav-mobile" aria-label="Mobile navigation">
   <a href="index.html" class="nav-mobile-link">HOME</a>
   <a href="weapons.html" class="nav-mobile-link">WEAPONS</a>
   <a href="maps.html" class="nav-mobile-link active">MAPS</a>
@@ -73,285 +275,182 @@
   <a href="skins.html" class="nav-mobile-link">SKINS</a>
   <a href="equipment.html" class="nav-mobile-link">EQUIPMENT</a>
   <a href="esports.html" class="nav-mobile-link">ESPORTS</a>
-</div>
+  <a href="weapons.html" class="btn btn-outline nav-mobile-full">ENTER ARSENAL</a>
+</nav>
 
 <section id="war-head">
-  <div class="head-tag"><span class="head-dot"></span> STORM UPLINK â€” 7 BATTLEGROUNDS ON FILE</div>
-  <h1 class="war-h1">THE <span class="accent">WAR TABLE</span></h1>
-  <p class="war-desc">Every drop zone on file, briefed under storm-lit skies with live atomic-signal detection. Select a battleground below to pull its full strategic readout onto the table.</p>
+  <aside class="war-badge"><span class="war-dot"></span> BATTLEFIELD INTEL — CLASSIFIED ZONE DATA</aside>
+  <h1 class="war-h1">THE <em>WAR TABLE</em></h1>
+  <p class="war-desc">Classified tactical intelligence on every Battlegrounds Mobile India combat arena. Terrain profiles, loot zone analysis, and strategic deployment data from Blood Moon operations.</p>
+  <ul class="war-stats">
+    <li class="w-stat"><strong class="w-stat-num">7</strong><small class="w-stat-label">Arenas</small></li>
+    <li class="w-stat"><strong class="w-stat-num">42+</strong><small class="w-stat-label">Hot Zones</small></li>
+    <li class="w-stat"><strong class="w-stat-num">TOP</strong><small class="w-stat-label">Clearance</small></li>
+  </ul>
 </section>
 
-<section id="briefing">
-  <div class="briefing-frame">
-    <div class="briefing-visual" id="briefingVisual">
-      <div class="briefing-visual-grid"></div>
-      <div class="briefing-visual-scanlines"></div>
-      <div class="briefing-code" id="briefingCode">SECTOR // 00</div>
-      <div class="sonar-wrap"><div class="sonar-ring"></div><div class="sonar-ring d2"></div><div class="sonar-ring d3"></div><div class="sonar-dot"></div></div>
-      <span class="briefing-corner tl"></span><span class="briefing-corner tr"></span>
-      <span class="briefing-corner bl"></span><span class="briefing-corner br"></span>
-      <div class="briefing-name-plate">
-        <div class="briefing-name" id="briefingName">Erangel</div>
-        <div class="briefing-tag" id="briefingTag">Classic Battleground</div>
-      </div>
-      <div class="briefing-visual-vignette"></div>
-      
-    </div>
-    <div class="briefing-data">
-      <p class="bd-desc" id="bdDesc">â€”</p>
-      <div class="bd-stats">
-        <div class="bd-stat"><div class="bd-stat-label">Map Size</div><div class="bd-stat-val" id="bdSize">â€”</div></div>
-        <div class="bd-stat"><div class="bd-stat-label">Max Players</div><div class="bd-stat-val" id="bdPlayers">â€”</div></div>
-        <div class="bd-stat"><div class="bd-stat-label">Terrain</div><div class="bd-stat-val" id="bdTerrain">â€”</div></div>
-        <div class="bd-stat"><div class="bd-stat-label">Points of Interest</div><div class="bd-stat-val" id="bdPoiCount">â€”</div></div>
-      </div>
-      <div>
-        <div class="bd-stat-label" style="margin-bottom:.5rem;">Supported Modes</div>
-        <div class="bd-modes" id="bdModes"></div>
-      </div>
-      <div>
-        <div class="bd-stat-label" style="margin-bottom:.5rem;">Notable Drop Zones</div>
-        <div class="bd-poi" id="bdPoi">â€”</div>
-      </div>
-    </div>
-  </div>
-</section>
+<main id="briefing">
+  <header class="brief-head">
+    <p class="brief-tag">// SATELLITE RECONNAISSANCE // 7 ARENAS ONLINE</p>
+    <h2 class="brief-h2">COMBAT <em>ARENAS</em></h2>
+  </header>
 
-<section id="roster">
-  <div id="roster-filter">
-    <button class="filter-pill active" data-filter="all">All Battlegrounds</button>
-    <button class="filter-pill" data-filter="Large">Large (8x8)</button>
-    <button class="filter-pill" data-filter="Mid">Mid (6x6 / 4x4)</button>
-    <button class="filter-pill" data-filter="Small">Small (2x2)</button>
-  </div>
-  <div class="roster-grid" id="rosterGrid"></div>
-</section>
+  <ul class="map-grid">
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="Erangel.jpeg" alt="Erangel" class="map-thumb-img" loading="eager">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-01 · 8×8 KM · GRASSLANDS</p>
+            <h3 class="map-name">ERANGEL</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Grassland</span>
+          <span class="map-badge"><b>HOTDROP:</b> Military Base</span>
+          <span class="map-badge"><b>STYLE:</b> Versatile</span>
+        </section>
+        <label for="mc-erangel" class="map-expand-btn">
+          VIEW FULL TACTICAL INTEL
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+        </label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="Miramar.jpeg" alt="Miramar" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-02 · 8×8 KM · DESERT</p>
+            <h3 class="map-name">MIRAMAR</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Desert</span>
+          <span class="map-badge"><b>HOTDROP:</b> Hacienda</span>
+          <span class="map-badge"><b>STYLE:</b> Long Range</span>
+        </section>
+        <label for="mc-miramar" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="Vikendi.jpeg" alt="Vikendi" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-03 · 6×6 KM · SNOW</p>
+            <h3 class="map-name">VIKENDI</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Snow</span>
+          <span class="map-badge"><b>HOTDROP:</b> Dino Park</span>
+          <span class="map-badge"><b>STYLE:</b> Balanced</span>
+        </section>
+        <label for="mc-vikendi" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="sanhok.jpeg" alt="Sanhok" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-04 · 4×4 KM · JUNGLE</p>
+            <h3 class="map-name">SANHOK</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Jungle</span>
+          <span class="map-badge"><b>HOTDROP:</b> Boot Camp</span>
+          <span class="map-badge"><b>STYLE:</b> CQC</span>
+        </section>
+        <label for="mc-sanhok" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="livik.jpeg" alt="Livik" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-05 · 2×2 KM · NORDIC</p>
+            <h3 class="map-name">LIVIK</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Nordic</span>
+          <span class="map-badge"><b>HOTDROP:</b> Power Plant</span>
+          <span class="map-badge"><b>STYLE:</b> Speed</span>
+        </section>
+        <label for="mc-livik" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="karakin.jpeg" alt="Karakin" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-06 · 2×2 KM · EXPLOSIVE</p>
+            <h3 class="map-name">KARAKIN</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Desert</span>
+          <span class="map-badge"><b>HOTDROP:</b> Hadiqa Nemo</span>
+          <span class="map-badge"><b>STYLE:</b> Explosive</span>
+        </section>
+        <label for="mc-karakin" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+    <li>
+      <article class="map-card">
+        <figure class="map-thumb">
+          <img src="rondo.jpeg" alt="Rondo" class="map-thumb-img" loading="lazy">
+          <span class="map-scan"></span>
+          <span class="map-hud tl"></span><span class="map-hud br"></span>
+          <figcaption class="map-thumb-cap">
+            <p class="map-terrain-tag">ZONE-07 · 8×8 KM · URBAN</p>
+            <h3 class="map-name">RONDO</h3>
+          </figcaption>
+        </figure>
+        <section class="map-quick">
+          <span class="map-badge"><b>TERRAIN:</b> Urban</span>
+          <span class="map-badge"><b>HOTDROP:</b> City Centre</span>
+          <span class="map-badge"><b>STYLE:</b> Mixed</span>
+        </section>
+        <label for="mc-rondo" class="map-expand-btn">VIEW FULL TACTICAL INTEL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg></label>
+      </article>
+    </li>
+  </ul>
+</main>
 
 <footer>
-  <div class="footer-accent-line"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-       <div>
-        <div class="footer-brand-name">BGMI <span>UNIVERSE</span></div>
-        <p class="footer-brand-desc">The ultimate  fanpage for Battlegrounds Mobile India â€” weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">NAVIGATE</div>
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="weapons.html" class="footer-link">Weapons</a>
-        <a href="maps.html" class="footer-link">Maps</a>
-        <a href="vehicles.html" class="footer-link">Vehicles</a>
-        <a href="characters.html" class="footer-link">Characters</a>
-        <a href="skins.html" class="footer-link">Skins</a>
-        <a href="equipment.html" class="footer-link">Equipment</a>
-        <a href="esports.html" class="footer-link">Esports</a>
-      </div>
-      <div>
-        <div class="footer-col-title">LABS</div>
-        <a href="weapons.html" class="footer-link">Blood Armory</a>
-        <a href="maps.html" class="footer-link">War Table</a>
-        <a href="vehicles.html" class="footer-link">Motor Pool</a>
-        <a href="skins.html" class="footer-link">Skin Vault</a>
-        <a href="esports.html" class="footer-link">Esports Intel</a>
-      </div>
-    </div>
-      <div class="footer-bottom">
-      <span class="footer-copy">Â© 2026 BGMI Universe â€” Fan-Page</span>
-      <span class="footer-note">Made by Nischay Samant</span>
-    </div>
-  </div>
+  <span class="footer-accent-line"></span>
+  <section class="footer-inner">
+    <section class="footer-grid">
+      <section>
+        <strong class="footer-brand-name">BGMI <span>UNIVERSE</span></strong>
+        <p class="footer-brand-desc">The ultimate fanpage for Battlegrounds Mobile India — weapons, tactical maps, vehicles, skins, characters and esports, all in one cinematic experience.</p>
+      </section>
+      <nav aria-label="Footer navigation">
+        <h3 class="footer-col-title">NAVIGATE</h3>
+        <a href="index.html" class="footer-link">Home</a><a href="weapons.html" class="footer-link">Weapons</a><a href="maps.html" class="footer-link">Maps</a><a href="vehicles.html" class="footer-link">Vehicles</a><a href="characters.html" class="footer-link">Characters</a><a href="skins.html" class="footer-link">Skins</a><a href="equipment.html" class="footer-link">Equipment</a><a href="esports.html" class="footer-link">Esports</a>
+      </nav>
+      <nav aria-label="Footer labs"><h3 class="footer-col-title">LABS</h3><a href="weapons.html" class="footer-link">3D Weapon Showroom</a><a href="skins.html" class="footer-link">Skin Vault</a><a href="characters.html" class="footer-link">Character Dossiers</a><a href="esports.html" class="footer-link">Esports Intel</a></nav>
+    </section>
+    <p class="footer-bottom"><span class="footer-copy">© 2026 BGMI Universe — Fan-Page</span><span class="footer-note">Made by Nischay Samant</span></p>
+  </section>
 </footer>
-
-<script>
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const canHover = window.matchMedia('(hover: hover)').matches;
-
-const nav = document.getElementById('nav');
-let scrollRAF = null, scrollEndTimer = null;
-function handleScroll() {
-  if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-}
-window.addEventListener('scroll', () => {
-  document.body.classList.add('is-scrolling');
-  clearTimeout(scrollEndTimer);
-  scrollEndTimer = setTimeout(() => document.body.classList.remove('is-scrolling'), 150);
-  if (scrollRAF) return;
-  scrollRAF = requestAnimationFrame(() => { handleScroll(); scrollRAF = null; });
-}, { passive:true });
-const navToggle = document.getElementById('nav-toggle');
-const navMobile = document.getElementById('nav-mobile');
-navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
-
-const glow = document.getElementById('cursor-glow');
-let mx = window.innerWidth/2, my = window.innerHeight/2, gx = mx, gy = my, rafRunning = false;
-if (!reducedMotion && canHover && glow) {
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; glow.style.opacity = '1'; }, { passive:true });
-  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-  function raf(){
-    if (document.hidden) { rafRunning = false; return; }
-    gx += (mx-gx)*0.12; gy += (my-gy)*0.12;
-    glow.style.transform = `translate(${gx-170}px, ${gy-170}px)`;
-    requestAnimationFrame(raf);
-  }
-  function startRaf(){ if (!rafRunning) { rafRunning = true; requestAnimationFrame(raf); } }
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) startRaf(); });
-  startRaf();
-}
-
-const bgVid = document.getElementById('bg-video');
-bgVid.play().catch(() => { document.addEventListener('click', () => bgVid.play(), { once:true }); });
-if (!reducedMotion) document.getElementById('lightning').classList.add('active');
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) bgVid.pause(); else bgVid.play().catch(() => {});
-});
-const soundToggle = document.getElementById('sound-toggle');
-const soundHint = document.getElementById('sound-hint');
-let audioUnlocked = false;
-
-function fadeVolume(video, to, duration = 700) {
-  const from = video.volume;
-  const start = performance.now();
-  function step(now) {
-    const p = Math.min((now - start) / duration, 1);
-    video.volume = from + (to - from) * p;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-function enableSound() {
-  if (!bgVid) return;
-  bgVid.muted = false;
-  bgVid.volume = 0;
-  bgVid.play().catch(() => {});
-  fadeVolume(bgVid, 0.55);
-  if (soundToggle) { soundToggle.classList.remove('muted'); soundToggle.setAttribute('aria-pressed', 'true'); }
-  if (soundHint) soundHint.classList.remove('show');
-}
-function disableSound() {
-  if (!bgVid) return;
-  fadeVolume(bgVid, 0, 350);
-  setTimeout(() => { bgVid.muted = true; }, 370);
-  if (soundToggle) { soundToggle.classList.add('muted'); soundToggle.setAttribute('aria-pressed', 'false'); }
-}
-function firstGestureUnlock() {
-  if (audioUnlocked) return;
-  audioUnlocked = true;
-  enableSound();
-  document.removeEventListener('click', firstGestureUnlock);
-  document.removeEventListener('touchstart', firstGestureUnlock);
-  document.removeEventListener('keydown', firstGestureUnlock);
-}
-if (bgVid && soundToggle) {
-  document.addEventListener('click', firstGestureUnlock);
-  document.addEventListener('touchstart', firstGestureUnlock, { passive: true });
-  document.addEventListener('keydown', firstGestureUnlock);
-
-  soundToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    audioUnlocked = true;
-    if (bgVid.muted) enableSound(); else disableSound();
-  });
-
-  setTimeout(() => { if (bgVid.muted && soundHint) soundHint.classList.add('show'); }, reducedMotion ? 400 : 2500);
-  setTimeout(() => { if (soundHint) soundHint.classList.remove('show'); }, 9500);
-}
-
-const maps = [
-  { id:'erangel', name:'Erangel', tag:'Classic Battleground', img:'Erangel.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Mixed / Forest', poiCount:'20+',
-    desc:'The original proving ground â€” rolling farmland, dense forest and the ruins of Pochinki at its heart. Balanced loot and open sightlines reward map awareness over rushing.',
-    modes:['Solo','Duo','Squad','TDM'], poi:'<b>Pochinki</b> â€” chaotic early fights Â· <b>Military Base</b> â€” high-tier loot Â· <b>School</b> â€” central rotation fights' },
-  { id:'miramar', name:'Miramar', tag:'Desert Battleground', img:'Miramar.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Desert / Canyon', poiCount:'18+',
-    desc:'A sun-scorched desert of canyons and open highways. Longer sightlines favor DMRs and snipers â€” vehicles matter more here than anywhere else on the table.',
-    modes:['Solo','Duo','Squad'], poi:'<b>Los Leones</b> â€” coastal loot hub Â· <b>Hacienda del PatrÃ³n</b> â€” cartel compound Â· <b>Water Town</b> â€” vertical CQC' },
-  { id:'sanhok', name:'Sanhok', tag:'Jungle Battleground', img:'sanhok.jpeg', size:'4x4 km', sizeClass:'Mid', players:'100', terrain:'Jungle / Island', poiCount:'12+',
-    desc:'Dense, fast and unforgiving. Sanhok\'s tight jungle compresses fights early, and the zone closes hard â€” expect action within minutes of landing.',
-    modes:['Solo','Duo','Squad','Quick Match'], poi:'<b>Bootcamp</b> â€” high-risk high-reward Â· <b>Paradise Resort</b> â€” central hotspot Â· <b>Ha Tinh</b> â€” coastal rotations' },
-  { id:'vikendi', name:'Vikendi', tag:'Snow Battleground', img:'Vikendi.jpeg', size:'6x6 km', sizeClass:'Mid', players:'100', terrain:'Snow / Mountain', poiCount:'15+',
-    desc:'A frozen expanse where snowmobile tracks give away your position and frozen lakes crack under vehicle weight. Verticality and cover discipline decide fights here.',
-    modes:['Solo','Duo','Squad'], poi:'<b>Cosmodrome</b> â€” abandoned launch site Â· <b>Castle</b> â€” fortified endgame zone Â· <b>Dino Park</b> â€” landmark rotation' },
-  { id:'livik', name:'Livik', tag:'Compact Battleground', img:'livik.jpeg', size:'2x2 km', sizeClass:'Small', players:'52', terrain:'Nordic / Coastal', poiCount:'9',
-    desc:'Built for speed. Short zone timers and a tiny footprint mean the whole lobby is in a firefight within the first two circles â€” no rotation, only combat.',
-    modes:['Solo','Duo','Squad','Quick Match'], poi:'<b>Blomster</b> â€” waterfall drop Â· <b>Power Plant</b> â€” industrial loot Â· <b>Mure Hill</b> â€” high-ground endgame' },
-  { id:'karakin', name:'Karakin', tag:'Tactical Battleground', img:'karakin.jpeg', size:'2x2 km', sizeClass:'Small', players:'64', terrain:'Rock / Bunker', poiCount:'8',
-    desc:'Destructible walls and a black-zone mechanic that can wipe entire compounds. Karakin punishes camping â€” the map itself is designed to force engagement.',
-    modes:['Solo','Duo','Squad'], poi:'<b>Cave</b> â€” hidden loot passage Â· <b>Bunkers</b> â€” underground vault rooms Â· <b>Bahra</b> â€” dense central town' },
-  { id:'rondo', name:'Rondo', tag:'Dynasty Battleground', img:'rondo.jpeg', size:'8x8 km', sizeClass:'Large', players:'100', terrain:'Mixed / Cultural', poiCount:'19+',
-    desc:'The newest battleground â€” a sprawling map blending imperial architecture with open plains. Interactive POIs and destructible cover push a more dynamic playstyle.',
-    modes:['Solo','Duo','Squad'], poi:'<b>Whitewood</b> â€” resource-rich forest Â· <b>Grand Bazaar</b> â€” market district skirmishes Â· <b>Palace</b> â€” landmark endgame zone' }
-];
-
-const grid = document.getElementById('rosterGrid');
-const visual = document.getElementById('briefingVisual');
-let selectedId = maps[0].id;
-
-function renderRoster(filter='all'){
-  grid.innerHTML = '';
-  maps.forEach((m, i) => {
-    if (filter !== 'all' && m.sizeClass !== filter) return;
-    const card = document.createElement('div');
-    card.className = 'roster-card' + (m.id === selectedId ? ' selected' : '');
-    card.dataset.id = m.id;
-    card.style.animationDelay = (i*0.05) + 's';
-    card.innerHTML = `
-      <img src="${encodeURIComponent(m.img)}" alt="${m.name}" onerror="this.style.display='none'">
-      <div class="roster-label">
-        <div class="roster-name">${m.name}</div>
-        <div class="roster-size">${m.size} Â· ${m.terrain}</div>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-function selectMap(id){
-  const m = maps.find(x => x.id === id);
-  if (!m) return;
-  selectedId = id;
-
-  document.getElementById('briefingName').textContent = m.name;
-  document.getElementById('briefingTag').textContent = m.tag;
-  document.getElementById('briefingCode').textContent = 'SECTOR // ' + m.id.slice(0,3).toUpperCase();
-  document.getElementById('bdDesc').textContent = m.desc;
-  document.getElementById('bdSize').textContent = m.size;
-  document.getElementById('bdPlayers').textContent = m.players;
-  document.getElementById('bdTerrain').textContent = m.terrain;
-  document.getElementById('bdPoiCount').textContent = m.poiCount;
-  document.getElementById('bdPoi').innerHTML = m.poi;
-  document.getElementById('bdModes').innerHTML = m.modes.map(mode => `<span class="bd-mode">${mode}</span>`).join('');
-
-  let img = visual.querySelector(`img[data-id="${id}"]`);
-  visual.querySelectorAll('img').forEach(el => el.classList.remove('active'));
-  if (!img) {
-    img = document.createElement('img');
-    img.dataset.id = id;
-    img.src = encodeURIComponent(m.img);
-    img.alt = m.name;
-    img.onerror = function(){ this.style.display = 'none'; };
-    visual.insertBefore(img, visual.querySelector('.briefing-visual-vignette'));
-    requestAnimationFrame(() => img.classList.add('active'));
-  } else {
-    img.classList.add('active');
-  }
-
-  document.querySelectorAll('.roster-card').forEach(c => c.classList.toggle('selected', c.dataset.id === id));
-}
-
-grid.addEventListener('click', (e) => {
-  const card = e.target.closest('.roster-card');
-  if (!card) return;
-  selectMap(card.dataset.id);
-  document.getElementById('briefing').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block:'center' });
-});
-
-document.querySelectorAll('.filter-pill').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    renderRoster(e.target.getAttribute('data-filter'));
-  });
-});
-
-renderRoster();
-selectMap(maps[0].id);
-</script>
 </body>
 </html>

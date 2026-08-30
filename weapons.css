@@ -1,3 +1,4 @@
+﻿.menu-checkbox{display:none;}
 :root{
 
   --void:#0a0c10; --void-3:#181c22;
@@ -62,11 +63,6 @@ body{
   background-size:44px 44px;
   mask-image:radial-gradient(ellipse 65% 60% at 50% 20%, black 15%, transparent 75%);
 }
-#cursor-glow{
-  position:fixed; top:0; left:0; width:340px; height:340px; z-index:5; pointer-events:none; border-radius:50%;
-  background:radial-gradient(circle, rgba(216,30,58,.1) 0%, rgba(201,168,106,.05) 40%, transparent 72%);
-  mix-blend-mode:screen; opacity:0; transition:opacity .4s ease; will-change:transform; contain:layout style paint;
-}
 
 #sound-toggle{
   position:fixed; right:1.5rem; bottom:1.5rem; z-index:500;
@@ -130,12 +126,13 @@ body{
 }
 .nav-link:hover{ background:rgba(201,168,106,.06); }
 .nav-cta{ margin-left:1.4rem; }
-#nav-toggle{ display:none; background:none; border:none; cursor:pointer; color:var(--gold-2); padding:.5rem; margin-left:auto; }
+
 #nav-mobile{
   display:none; position:fixed; top:76px; left:0; right:0; z-index:199; background:rgba(5,3,7,.98);
   border-bottom:1px solid rgba(201,168,106,.2); backdrop-filter:blur(6px); padding:1.5rem 2rem;
 }
-#nav-mobile.open{ display:block; }
+.menu-checkbox:checked ~ #nav-mobile{ display:block; }
+
 .nav-mobile-link{
   display:block; font-family:'Orbitron',sans-serif; font-size:.78rem; font-weight:700; color:var(--ash);
   text-decoration:none; letter-spacing:.1em; padding:.75rem 0; border-bottom:1px solid rgba(255,255,255,.05); transition:color .2s ease;
@@ -193,7 +190,7 @@ body{
 #filter-count b{ color:var(--gold-2); }
 
 #arsenal{ max-width:1400px; margin:0 auto; padding:0 2rem 6rem; }
-.arsenal-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.9rem; }
+.arsenal-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.9rem; contain:layout style; }
 
 .card-3d{ perspective:1100px; content-visibility:auto; contain-intrinsic-size:auto 460px; }
 .card-face{
@@ -201,12 +198,13 @@ body{
   background:linear-gradient(165deg, rgba(236,228,216,.05), rgba(236,228,216,.015));
   border:1px solid var(--panel-edge); padding:1.7rem 1.5rem 1.5rem; cursor:pointer;
   clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
-  box-shadow:0 14px 34px rgba(0,0,0,.5), inset 0 0 26px rgba(0,0,0,.35);
-  overflow:hidden; opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease, border-color .35s ease, box-shadow .35s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
+  overflow:hidden; opacity:1; transform:none;
+  transition:border-color .35s ease, box-shadow .35s ease;
   backface-visibility:hidden;
 }
-.card-face.visible{ opacity:1; transform:translateY(0); }
-.card-face.is-tilting{ will-change:transform; }
+.card-face.visible{ opacity:1; transform:none; }
+.card-3d:hover .card-face{ will-change:transform; }
 
 .card-sheen{
   position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .35s ease; mix-blend-mode:screen;
@@ -222,7 +220,7 @@ body{
 .card-3d:hover .card-top-edge{ opacity:1; }
 .card-3d:hover .card-face, .card-face.stats-open{
   border-color:var(--card-accent, var(--gold));
-  box-shadow:0 26px 55px rgba(0,0,0,.6), 0 0 34px var(--card-accent-glow, var(--gold-glow)), inset 0 0 30px rgba(0,0,0,.3);
+  box-shadow:0 20px 45px rgba(0,0,0,.55), 0 0 26px var(--card-accent-glow, var(--gold-glow));
 }
 
 .hud-corner{
@@ -255,16 +253,16 @@ body{
 .card-stage{ position:relative; height:190px; display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; z-index:2; overflow:hidden; }
 .stage-ring{
   position:absolute; width:150px; height:150px; border-radius:50%; border:1px dashed var(--card-accent, var(--gold));
-  opacity:.3; animation:ringSpin 11s linear infinite;
+  opacity:.25; will-change:transform; animation:ringSpin 14s linear infinite;
 }
-.stage-ring.r2{ width:182px; height:182px; border-style:dotted; animation-direction:reverse; animation-duration:16s; }
+.stage-ring.r2{ width:182px; height:182px; border-style:dotted; animation-direction:reverse; animation-duration:20s; }
 @keyframes ringSpin{ to{ transform:rotate(360deg); } }
 .stage-glow{
   position:absolute; width:100px; height:16px; bottom:2px; border-radius:50%;
-  background:var(--card-accent, var(--gold)); filter:blur(16px); opacity:.45;
+  background:var(--card-accent, var(--gold)); filter:blur(12px); opacity:.35;
 }
-.stage-icon{ position:relative; z-index:2; width:92%; max-height:150px; object-fit:contain; filter:drop-shadow(0 10px 14px rgba(0,0,0,.85)); transition:filter .35s ease, transform .35s ease; backface-visibility:hidden; }
-.card-3d:hover .stage-icon{ filter:drop-shadow(0 0 20px var(--card-accent, var(--gold))); transform:translateZ(20px) scale(1.05) rotate(-1.5deg); }
+.stage-icon{ position:relative; z-index:2; width:92%; max-height:150px; object-fit:contain; filter:drop-shadow(0 8px 10px rgba(0,0,0,.8)); transition:filter .35s ease, transform .35s ease; backface-visibility:hidden; }
+.card-3d:hover .stage-icon{ filter:drop-shadow(0 0 16px var(--card-accent, var(--gold))); transform:translateZ(16px) scale(1.04) rotate(-1.5deg); }
 .stage-fallback{ position:absolute; opacity:.55; color:var(--card-accent, var(--gold)); z-index:1; }
 
 .stage-scan{
@@ -274,8 +272,8 @@ body{
 .card-3d:hover .stage-scan{ opacity:1; }
 .stage-scan::after{
   content:''; position:absolute; left:-10%; top:0; width:40%; height:100%;
-  background:linear-gradient(100deg, transparent, color-mix(in srgb, var(--card-accent, var(--gold)) 55%, transparent), transparent);
-  animation:stageScanSweep 1.6s ease-in-out infinite; will-change:transform;
+  background:linear-gradient(100deg, transparent, color-mix(in srgb, var(--card-accent, var(--gold)) 40%, transparent), transparent);
+  animation:stageScanSweep 2s ease-in-out infinite; will-change:transform;
 }
 @keyframes stageScanSweep{ 0%{ transform:translateX(-40%); } 100%{ transform:translateX(340%); } }
 
@@ -366,7 +364,7 @@ footer{ position:relative; border-top:1px solid rgba(201,168,106,.16); backgroun
 .footer-bottom{ border-top:1px solid rgba(236,228,216,.08); padding-top:1.5rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
 .footer-copy{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ash-dim); }
 .footer-note{ font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--ash-dim); opacity:.7; }
-@media (max-width:768px){ .footer-grid{ grid-template-columns:1fr; } .nav-links,.nav-cta{ display:none; } #nav-toggle{ display:flex; } #cursor-glow{ display:none; } }
+@media (max-width:768px){ .footer-grid{ grid-template-columns:1fr; } .nav-links,.nav-cta{ display:none; }   }
 
 @media (max-width:768px){
   .nav-inner{ padding:0 1.25rem; }
@@ -416,20 +414,13 @@ body.is-scrolling #sound-toggle{
     display:none;
   }
 
-  #nav-toggle{
-    display:flex;
-  }
-
-  #nav-mobile{
+#nav-mobile{
     padding-left:1rem;
     padding-right:1rem;
   }
+.menu-checkbox:checked ~ #nav-mobile{ display:block; }
 
-  #cursor-glow{
-    display:none;
-  }
-
-  #armory-head{
+#armory-head{
     width:100%;
     max-width:100%;
     padding:120px 1rem 42px;
@@ -725,3 +716,40 @@ body.is-scrolling #sound-toggle{
     max-height:145px;
   }
 }
+
+.card-3d:not(:hover) .stage-ring {
+  animation-play-state: running;
+  opacity: .18;
+}
+
+.stat-fill {
+  box-shadow: none;
+}
+.card-3d:hover .stat-fill {
+  box-shadow: 0 0 6px var(--card-accent, var(--gold));
+}
+
+.card-3d:not(:hover) .stage-glow {
+  filter: blur(8px);
+  opacity: .22;
+}
+
+.impulse-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--card-accent, var(--gold));
+  pointer-events: none; z-index: 7;
+  animation: impulseOut .7s cubic-bezier(.2,.65,.3,1) forwards;
+}
+@keyframes impulseOut {
+  0%   { width:0;     height:0;     opacity:.8; }
+  100% { width:280px; height:280px; margin-left:-140px; margin-top:-140px; opacity:0; }
+}
+
+#nav { transform: translateZ(0); }
+
+body.is-scrolling .card-face { backdrop-filter: none !important; }
+
+.stage-ring, .stage-icon, .stat-fill { transform: translateZ(0); }
+.wcard-gold { --card-accent:#f0d38a; --card-accent-glow:rgba(201,161,90,.45); }
+.wcard-teal { --card-accent:#5eead4; --card-accent-glow:rgba(45,217,185,.5);  }
+.wcard-blue { --card-accent:#7fb8ee; --card-accent-glow:rgba(58,111,168,.5);  }
